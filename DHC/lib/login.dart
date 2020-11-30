@@ -149,44 +149,12 @@ class _LoginViewState extends State<Login> {
           ),
         ),
         onPressed: () async {
-          try {
-            // ignore: deprecated_member_use
-            final User user =
-                (await FirebaseAuth.instance.signInWithEmailAndPassword(
-              email: _emailController.text,
-              password: _passwordController.text,
-            ))
-                    .user;
-            if (user != null) {
-              SharedPreferences prefs = await SharedPreferences.getInstance();
-              prefs.setString('displayName', user.displayName);
-              prefs.setString('email', user.email);
-              print(user.email);
-              username = user.email;
-              // ignore: deprecated_member_use
-              Firestore.instance
-                  .collection("Users")
-                  .where("email", isEqualTo: user.email)
-                  .get()
-                  .then((querySnapshot) {
-                querySnapshot.docs.forEach((result) {
-                  print(result.data()["Navn"]);
-                  prefs.setString("Name", result.data()["Navn"]);
-                });
-              });
-
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => HomePage(),
-                ),
-              );
-            }
-          } catch (e) {
-            print(e);
-            _emailController.text = "";
-            _passwordController.text = "";
-          }
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HomePage(),
+            ),
+          );
         },
       ),
     );

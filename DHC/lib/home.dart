@@ -105,7 +105,7 @@ class BeforeWork extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Introduction()),
+                MaterialPageRoute(builder: (context) => POverview()),
               );
             },
             child: const Text('Før arbejde',
@@ -124,7 +124,45 @@ class BeforeWork extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Introduction()),
+                MaterialPageRoute(builder: (context) => RUnfilledDays()),
+              );
+            },
+            child: const Text('Før arbejde',
+                style: TextStyle(fontSize: 20, fontFamily: "NunitoSans")),
+          ),
+        ),
+        ButtonTheme(
+          minWidth: 300.0,
+          height: 50.0,
+          child: RaisedButton(
+            color: Colors.white,
+            shape: new RoundedRectangleBorder(
+              side: BorderSide(color: Color(0xfffb8900)),
+              borderRadius: new BorderRadius.circular(30.0),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => OMenu()),
+              );
+            },
+            child: const Text('Før arbejde',
+                style: TextStyle(fontSize: 20, fontFamily: "NunitoSans")),
+          ),
+        ),
+        ButtonTheme(
+          minWidth: 300.0,
+          height: 50.0,
+          child: RaisedButton(
+            color: Colors.white,
+            shape: new RoundedRectangleBorder(
+              side: BorderSide(color: Color(0xfffb8900)),
+              borderRadius: new BorderRadius.circular(30.0),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Information()),
               );
             },
             child: const Text('Før arbejde',
