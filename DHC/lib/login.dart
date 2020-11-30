@@ -135,7 +135,7 @@ class _LoginViewState extends State<Login> {
     final loginButton = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(25.0),
-      color: NovotiOrange,
+      color: DHCGray,
       child: MaterialButton(
         minWidth: mq.size.width / 1.2,
         padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),

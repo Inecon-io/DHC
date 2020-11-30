@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:DHC/Information/info.dart';
+import 'package:DHC/Register/unfilledDays.dart';
+import 'package:DHC/MyProfile/pOverview.dart';
+import 'package:DHC/Overview/oMenu.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -6,7 +10,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Position _currentPosition;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,15 +36,6 @@ class _HomePageState extends State<HomePage> {
               children: [
                 SizedBox(height: 20),
                 HeaderTitleClass(),
-                SizedBox(height: 30),
-                PickMenuClass(),
-                SmallText(),
-                SizedBox(height: 70),
-                BeforeWork(),
-                SizedBox(height: 20),
-                AfterWork(),
-                SizedBox(height: 20),
-                Manager(),
                 SizedBox(height: 100),
               ],
             )));
@@ -52,10 +46,10 @@ class HeaderTitleClass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
-          '\t Velkommen',
+          'Hovedpinekalender',
           style: TextStyle(fontSize: 25, fontFamily: "NunitoSansBold"),
         ),
       ],
@@ -118,17 +112,6 @@ class BeforeWork extends StatelessWidget {
                 style: TextStyle(fontSize: 20, fontFamily: "NunitoSans")),
           ),
         ),
-      ],
-    );
-  }
-}
-
-class AfterWork extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
         ButtonTheme(
           minWidth: 300.0,
           height: 50.0,
@@ -141,40 +124,10 @@ class AfterWork extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Goodbye()),
+                MaterialPageRoute(builder: (context) => Introduction()),
               );
             },
-            child: const Text('Efter arbejde',
-                style: TextStyle(fontSize: 20, fontFamily: "NunitoSans")),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class Manager extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        ButtonTheme(
-          minWidth: 300.0,
-          height: 50.0,
-          child: RaisedButton(
-            color: Colors.white,
-            shape: new RoundedRectangleBorder(
-              side: BorderSide(color: Color(0xfffb8900)),
-              borderRadius: new BorderRadius.circular(30.0),
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Login()),
-              );
-            },
-            child: const Text('Butiksmanager',
+            child: const Text('Før arbejde',
                 style: TextStyle(fontSize: 20, fontFamily: "NunitoSans")),
           ),
         ),
