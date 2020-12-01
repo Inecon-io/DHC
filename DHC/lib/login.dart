@@ -1,9 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
+
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:DHC/globalVariables.dart';
 
@@ -25,18 +23,9 @@ class _LoginViewState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context);
-    future:
-    Firebase.initializeApp();
+    //future:
+    //Firebase.initializeApp();
     void showAlertDialog(BuildContext context) {}
-
-    final imageLogo =
-        Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-      Image.asset(
-        'asset/Logo_2020_04_Sort.png',
-        fit: BoxFit.contain,
-        height: 100,
-      ),
-    ]);
 
     final emailField = TextFormField(
       controller: _emailController,
@@ -99,22 +88,6 @@ class _LoginViewState extends State<Login> {
         Padding(
           padding: EdgeInsets.all(2.0),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            MaterialButton(
-                child: Text(
-                  "Forgot Password",
-                  style: Theme.of(context)
-                      .textTheme
-                      .caption
-                      .copyWith(color: Colors.white),
-                ),
-                onPressed: () {
-                  showAlertDialog(context);
-                }),
-          ],
-        ),
       ],
     );
 
@@ -123,7 +96,6 @@ class _LoginViewState extends State<Login> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          imageLogo,
           SizedBox(height: 50),
           emailField,
           SizedBox(height: 20),
@@ -159,45 +131,6 @@ class _LoginViewState extends State<Login> {
       ),
     );
 
-    final bottom = Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: <Widget>[
-        loginButton,
-        Padding(
-          padding: EdgeInsets.all(8.0),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Text(
-              "Not a member?",
-              style: Theme.of(context).textTheme.subtitle1.copyWith(
-                    color: Colors.white,
-                  ),
-            ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => HomePage(),
-                  ),
-                );
-              },
-              child: Text(
-                "Sign Up",
-                style: Theme.of(context).textTheme.subtitle1.copyWith(
-                      color: Colors.white,
-                      decoration: TextDecoration.underline,
-                    ),
-              ),
-            ),
-          ],
-        ),
-      ],
-    );
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: Form(
@@ -212,7 +145,6 @@ class _LoginViewState extends State<Login> {
                 fields,
                 Padding(
                   padding: EdgeInsets.only(bottom: 150),
-                  child: bottom,
                 ),
               ],
             ),

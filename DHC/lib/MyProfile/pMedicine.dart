@@ -13,7 +13,7 @@ class PMedicineScroll extends StatelessWidget {
   }
 }
 
-class Satisfied extends StatelessWidget {
+class PMedicine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,24 +41,24 @@ class Satisfied extends StatelessWidget {
               icon: Icon(
                 Icons.home,
                 size: 40.0,
-                color: NovotiOrange,
+                color: DHCTextGray,
               ),
               title: Text('Hjem',
                   style: TextStyle(
                       fontSize: 14.0,
-                      color: NovotiOrange,
+                      color: DHCTextGray,
                       fontFamily: 'NunitoSans')),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline, size: 40.0, color: NovotiOrange),
+              icon: Icon(Icons.person_outline, size: 40.0, color: DHCTextGray),
               title: Text('profil',
                   style: TextStyle(
                       fontSize: 14.0,
-                      color: NovotiOrange,
+                      color: DHCTextGray,
                       fontFamily: 'NunitoSans')),
             ),
           ],
         ),
-        body: SatisfiedScroll());
+        body: PMedicineScroll());
   }
 }
