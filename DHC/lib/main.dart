@@ -28,7 +28,7 @@ class Second extends StatelessWidget {
     return ListView(children: <Widget>[
       SizedBox(height: 70),
       UnderText(),
-      SizedBox(height: 120),
+      SizedBox(height: 170),
       NextButton(),
     ]);
   }
@@ -53,15 +53,15 @@ class _NextButton extends State<NextButton> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         ButtonTheme(
           minWidth: 150.0,
           height: 50.0,
           child: RaisedButton(
-            color: Colors.white,
+            color: DHCGray,
             shape: new RoundedRectangleBorder(
-              side: BorderSide(color: Color(0xfffb8900)),
+              side: BorderSide(color: DHCGreen),
               borderRadius: new BorderRadius.circular(30.0),
             ),
             onPressed: () async {
@@ -73,29 +73,13 @@ class _NextButton extends State<NextButton> {
               );
             },
             child: const Text('Log ind',
-                style: TextStyle(fontSize: 20, fontFamily: "MontSerrat")),
+                style: TextStyle(
+                    fontSize: 20,
+                    fontFamily: "MontSerrat",
+                    color: Colors.white)),
           ),
         ),
         SizedBox(height: 50),
-        ButtonTheme(
-          minWidth: 150.0,
-          height: 50.0,
-          child: RaisedButton(
-            color: Colors.white,
-            shape: new RoundedRectangleBorder(
-              side: BorderSide(color: Color(0xfffb8900)),
-              borderRadius: new BorderRadius.circular(30.0),
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Login()),
-              );
-            },
-            child: const Text('Sign up',
-                style: TextStyle(fontSize: 20, fontFamily: "NunitoSans")),
-          ),
-        ),
       ],
     );
   }
@@ -110,7 +94,8 @@ class UnderText extends StatelessWidget {
         SizedBox(width: 20),
         Text(
           'Hovedpinekalender',
-          style: TextStyle(fontSize: 35, fontFamily: "MontSerrat"),
+          style: TextStyle(
+              fontSize: 35, fontFamily: "MontSerrat", color: Colors.white),
         ),
       ],
     );

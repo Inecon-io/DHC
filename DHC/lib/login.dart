@@ -112,7 +112,7 @@ class _LoginViewState extends State<Login> {
         minWidth: mq.size.width / 1.2,
         padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
         child: Text(
-          "Login",
+          "Log ind",
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 20.0,
@@ -132,7 +132,7 @@ class _LoginViewState extends State<Login> {
     );
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: backgroundColorDHC,
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(

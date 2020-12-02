@@ -8,39 +8,28 @@ import 'package:DHC/globalVariables.dart';
 
 class HomePage extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  State<StatefulWidget> createState() {
+    return HomePageState();
+  }
 }
 
-class _HomePageState extends State<HomePage> {
+class Second extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ListView(children: <Widget>[
+      SizedBox(height: 70),
+      SizedBox(height: 170),
+    ]);
+  }
+}
+
+class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
-            appBar: AppBar(
-              title: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Image.asset(
-                    'asset/appicon/AppLogo.png',
-                    fit: BoxFit.contain,
-                    height: 30,
-                  ),
-                ],
-              ),
-              iconTheme: IconThemeData(
-                color: Colors.black, //change your color here
-              ),
-              backgroundColor: backgroundColorDHC,
-            ),
-            body: Column(
-              children: [
-                SizedBox(height: 20),
-                HeaderTitleClass(),
-                SizedBox(height: 100),
-              ],
-            )));
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(backgroundColor: backgroundColorDHC, body: Second()),
+    );
   }
 }
 
