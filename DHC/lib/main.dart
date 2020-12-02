@@ -39,7 +39,7 @@ class MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(body: Second()),
+      home: Scaffold(backgroundColor: backgroundColorDHC, body: Second()),
     );
   }
 }
