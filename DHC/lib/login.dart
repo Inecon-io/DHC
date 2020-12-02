@@ -48,9 +48,9 @@ class _LoginViewState extends State<Login> {
           borderSide: BorderSide(color: Colors.black, width: 1.0),
         ),
         labelText: 'mail@mail.dk',
-        labelStyle: TextStyle(fontFamily: "NunitoSans", color: Colors.grey),
+        labelStyle: TextStyle(fontFamily: "MontSerrat", color: Colors.grey),
         hintText: 'email',
-        hintStyle: TextStyle(fontFamily: "NunitoSans", color: Colors.black),
+        hintStyle: TextStyle(fontFamily: "MontSerrat", color: Colors.black),
       ),
     );
 
@@ -73,16 +73,16 @@ class _LoginViewState extends State<Login> {
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(30.0)),
-              borderSide: BorderSide(color: Color(0xfffb8900), width: 2.0),
+              borderSide: BorderSide(color: DHCGreen, width: 2.0),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(30.0)),
               borderSide: BorderSide(color: Colors.black, width: 1.0),
             ),
             labelText: 'password',
-            labelStyle: TextStyle(fontFamily: "NunitoSans", color: Colors.grey),
+            labelStyle: TextStyle(fontFamily: "MontSerrat", color: Colors.grey),
             hintText: 'password',
-            hintStyle: TextStyle(fontFamily: "NunitoSans", color: Colors.black),
+            hintStyle: TextStyle(fontFamily: "MontSerrat", color: Colors.black),
           ),
         ),
         Padding(
@@ -116,8 +116,8 @@ class _LoginViewState extends State<Login> {
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 20.0,
-            color: Colors.white,
-            fontFamily: "NunitoSansBold",
+            color: DHCGreen,
+            fontFamily: "MontSerrat",
           ),
         ),
         onPressed: () async {
@@ -143,6 +143,7 @@ class _LoginViewState extends State<Login> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 fields,
+                loginButton,
                 Padding(
                   padding: EdgeInsets.only(bottom: 150),
                 ),

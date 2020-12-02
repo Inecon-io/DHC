@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:DHC/globalVariables.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OMenuScroll extends StatelessWidget {
   @override
@@ -32,7 +33,7 @@ class OMenu extends StatelessWidget {
           iconTheme: IconThemeData(
             color: Colors.black, //change your color here
           ),
-          backgroundColor: Colors.white,
+          backgroundColor: backgroundColorDHC,
         ),
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Color(0xfffb8900),

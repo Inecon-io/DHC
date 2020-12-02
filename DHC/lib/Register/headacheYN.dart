@@ -33,7 +33,7 @@ class RHeadacheYN extends StatelessWidget {
           iconTheme: IconThemeData(
             color: Colors.black, //change your color here
           ),
-          backgroundColor: Colors.white,
+          backgroundColor: backgroundColorDHC,
         ),
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Color(0xfffb8900),

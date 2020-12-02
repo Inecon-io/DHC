@@ -4,6 +4,7 @@ import 'package:DHC/Register/unfilledDays.dart';
 import 'package:DHC/MyProfile/pOverview.dart';
 import 'package:DHC/Overview/oMenu.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:DHC/globalVariables.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -31,7 +32,7 @@ class _HomePageState extends State<HomePage> {
               iconTheme: IconThemeData(
                 color: Colors.black, //change your color here
               ),
-              backgroundColor: Colors.white,
+              backgroundColor: backgroundColorDHC,
             ),
             body: Column(
               children: [
