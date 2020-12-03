@@ -8,159 +8,86 @@ import 'package:DHC/globalVariables.dart';
 
 class HomePage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() {
-    return HomePageState();
-  }
+  _HomePageState createState() => _HomePageState();
 }
 
-class Second extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ListView(children: <Widget>[
-      SizedBox(height: 70),
-      SizedBox(height: 170),
-    ]);
-  }
-}
+class _HomePageState extends State<HomePage> {
+  final _formKey = GlobalKey<FormState>();
 
-class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(backgroundColor: backgroundColorDHC, body: Second()),
+    //future:
+    //Firebase.initializeApp();
+    void showAlertDialog(BuildContext context) {}
+
+    final fields = Padding(
+      padding: EdgeInsets.only(top: 70.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[],
+      ),
     );
-  }
-}
 
-class HeaderTitleClass extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Text(
-          'Hovedpinekalender',
-          style: TextStyle(fontSize: 25, fontFamily: "NunitoSansBold"),
-        ),
-      ],
-    );
-  }
-}
+    double screenwidth = MediaQuery.of(context).size.width;
 
-class PickMenuClass extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          '\t Vælg menu',
-          style: TextStyle(fontSize: 20, fontFamily: "NunitoSansBold"),
-        ),
-      ],
-    );
-  }
-}
-
-class SmallText extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          '\t Du kan altid komme tilbage',
-          style: TextStyle(fontSize: 15, fontFamily: "NunitoSans"),
-        ),
-      ],
-    );
-  }
-}
-
-class BeforeWork extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        ButtonTheme(
-          minWidth: 300.0,
-          height: 50.0,
-          child: RaisedButton(
-            color: Colors.white,
-            shape: new RoundedRectangleBorder(
-              side: BorderSide(color: Color(0xfffb8900)),
-              borderRadius: new BorderRadius.circular(30.0),
+    final myProfile = FlatButton(
+        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => POverview()),
+          );
+        },
+        padding: EdgeInsets.all(0),
+        child: Image.asset('assets/Menu_1.png'));
+    final register = FlatButton(
+        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => RUnfilledDays()),
+          );
+        },
+        padding: EdgeInsets.all(0),
+        child: Image.asset('assets/Menu_2.png'));
+    final overview = FlatButton(
+        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => OMenu()),
+          );
+        },
+        child: Image.asset('assets/Menu_3.png'));
+    final info = FlatButton(
+        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Information()),
+          );
+        },
+        child: Image.asset('assets/Menu_4.png'));
+    return Scaffold(
+      backgroundColor: backgroundColorDHC,
+      body: Form(
+        key: _formKey,
+        child: SingleChildScrollView(
+          padding: EdgeInsets.all(0),
+          child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                fields,
+                myProfile,
+                register,
+                overview,
+                info,
+              ],
             ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => POverview()),
-              );
-            },
-            child: const Text('Før arbejde',
-                style: TextStyle(fontSize: 20, fontFamily: "NunitoSans")),
           ),
         ),
-        ButtonTheme(
-          minWidth: 300.0,
-          height: 50.0,
-          child: RaisedButton(
-            color: Colors.white,
-            shape: new RoundedRectangleBorder(
-              side: BorderSide(color: Color(0xfffb8900)),
-              borderRadius: new BorderRadius.circular(30.0),
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => RUnfilledDays()),
-              );
-            },
-            child: const Text('Før arbejde',
-                style: TextStyle(fontSize: 20, fontFamily: "NunitoSans")),
-          ),
-        ),
-        ButtonTheme(
-          minWidth: 300.0,
-          height: 50.0,
-          child: RaisedButton(
-            color: Colors.white,
-            shape: new RoundedRectangleBorder(
-              side: BorderSide(color: Color(0xfffb8900)),
-              borderRadius: new BorderRadius.circular(30.0),
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => OMenu()),
-              );
-            },
-            child: const Text('Før arbejde',
-                style: TextStyle(fontSize: 20, fontFamily: "NunitoSans")),
-          ),
-        ),
-        ButtonTheme(
-          minWidth: 300.0,
-          height: 50.0,
-          child: RaisedButton(
-            color: Colors.white,
-            shape: new RoundedRectangleBorder(
-              side: BorderSide(color: Color(0xfffb8900)),
-              borderRadius: new BorderRadius.circular(30.0),
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Information()),
-              );
-            },
-            child: const Text('Før arbejde',
-                style: TextStyle(fontSize: 20, fontFamily: "NunitoSans")),
-          ),
-        ),
-      ],
+      ),
     );
   }
 }
