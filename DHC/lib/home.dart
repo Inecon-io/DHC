@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage> {
 
     final myProfile = FlatButton(
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        height: 50,
         onPressed: () {
           Navigator.push(
             context,
@@ -41,16 +42,18 @@ class _HomePageState extends State<HomePage> {
         padding: EdgeInsets.all(0),
         child: Image.asset('assets/Menu_1.png'));
     final register = FlatButton(
+        height: 50,
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => RUnfilledDays()),
+            MaterialPageRoute(builder: (context) => UnFilledDays()),
           );
         },
         padding: EdgeInsets.all(0),
         child: Image.asset('assets/Menu_2.png'));
     final overview = FlatButton(
+        height: 50,
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         onPressed: () {
           Navigator.push(
@@ -60,6 +63,7 @@ class _HomePageState extends State<HomePage> {
         },
         child: Image.asset('assets/Menu_3.png'));
     final info = FlatButton(
+        height: 50,
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         onPressed: () {
           Navigator.push(

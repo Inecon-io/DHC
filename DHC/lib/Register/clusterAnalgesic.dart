@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:DHC/globalVariables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Duration extends StatefulWidget {
+class ClusterAnalgesics extends StatefulWidget {
   @override
-  _Duration createState() => _Duration();
+  _ClusterAnalgesics createState() => _ClusterAnalgesics();
 }
 
-class _Duration extends State<Duration> {
+class _ClusterAnalgesics extends State<ClusterAnalgesics> {
   bool _showPassword = false;
   final _formKey = GlobalKey<FormState>();
   TextEditingController _emailController = TextEditingController();

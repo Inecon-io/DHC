@@ -1,14 +1,14 @@
-import 'package:DHC/Register/intensity.dart';
+import 'package:DHC/Register/trineBackgroundPain.dart';
 import 'package:flutter/material.dart';
 import 'package:DHC/globalVariables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Duration extends StatefulWidget {
+class AttacksTriNe extends StatefulWidget {
   @override
-  _Duration createState() => _Duration();
+  _AttacksTriNe createState() => _AttacksTriNe();
 }
 
-class _Duration extends State<Duration> {
+class _AttacksTriNe extends State<AttacksTriNe> {
   bool _showPassword = false;
   final _formKey = GlobalKey<FormState>();
   TextEditingController _emailController = TextEditingController();
@@ -118,7 +118,7 @@ class _Duration extends State<Duration> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => Intensity(),
+              builder: (context) => BackGroundPain(),
             ),
           );
         },
