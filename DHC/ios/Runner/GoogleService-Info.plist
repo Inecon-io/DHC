@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>596073526279-qlvrer4v1qrpn3t89q0tumo6frk171po.apps.googleusercontent.com</string>
+	<string>596073526279-cle16qjqsr3lf8hc4ir2jrkm8eaioiug.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.596073526279-qlvrer4v1qrpn3t89q0tumo6frk171po</string>
+	<string>com.googleusercontent.apps.596073526279-cle16qjqsr3lf8hc4ir2jrkm8eaioiug</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDPuE8aA6L5DFrkcmuHwpLysh-ShJ5J2L4</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.DHC</string>
+	<string>com.inecon.DHC</string>
 	<key>PROJECT_ID</key>
 	<string>dhccalendar-fa857</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:596073526279:ios:ee7b70f509ce8186dd66a2</string>
+	<string>1:596073526279:ios:07de1a5008eb404add66a2</string>
 	<key>DATABASE_URL</key>
 	<string>https://dhccalendar-fa857.firebaseio.com</string>
 </dict>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "596073526279",
+    "firebase_url": "https://dhccalendar-fa857.firebaseio.com",
+    "project_id": "dhccalendar-fa857",
+    "storage_bucket": "dhccalendar-fa857.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:596073526279:android:62f7d71b174eeaeddd66a2",
+        "android_client_info": {
+          "package_name": "com.example.DHC"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "596073526279-baqilhr31mg0ob6nq6m5cfk28aleadjf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoPXcjhp3ar3XWvy3ucKe88pzNB7PYaSA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "596073526279-baqilhr31mg0ob6nq6m5cfk28aleadjf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "596073526279-qlvrer4v1qrpn3t89q0tumo6frk171po.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.DHC"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

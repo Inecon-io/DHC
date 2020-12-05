@@ -21,14 +21,14 @@ class _HomePageState extends State<HomePage> {
     void showAlertDialog(BuildContext context) {}
 
     final fields = Padding(
-      padding: EdgeInsets.only(top: 70.0),
+      padding: EdgeInsets.only(top: 100.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[],
       ),
     );
 
-    double screenwidth = MediaQuery.of(context).size.width;
+    //double screenwidth = MediaQuery.of(context).size.width;
 
     final myProfile = FlatButton(
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
@@ -73,7 +73,6 @@ class _HomePageState extends State<HomePage> {
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(0),
           child: Container(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

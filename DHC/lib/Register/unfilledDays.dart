@@ -3,7 +3,7 @@ import 'package:DHC/globalVariables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class RUnfilledDaysScroll extends StatelessWidget {
-  @override
+  @override 
   Widget build(BuildContext context) {
     return ListView(padding: const EdgeInsets.all(8), children: <Widget>[
       SizedBox(height: 20),
@@ -27,7 +27,7 @@ class RUnfilledDays extends StatelessWidget {
                 'asset/appicon/AppLogo.png',
                 fit: BoxFit.contain,
                 height: 30,
-              ),
+              ), 
             ],
           ),
           iconTheme: IconThemeData(
