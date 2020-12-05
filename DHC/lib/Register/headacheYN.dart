@@ -2,6 +2,7 @@ import 'package:DHC/Register/typeHeadache.dart';
 import 'package:flutter/material.dart';
 import 'package:DHC/globalVariables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HeadacheYN extends StatefulWidget {
   @override
@@ -16,74 +17,49 @@ class _HeadacheYN extends State<HeadacheYN> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData(fontFamily: 'MontSerrat');
     final mq = MediaQuery.of(context);
     //future:
     //Firebase.initializeApp();
     void showAlertDialog(BuildContext context) {}
+
     final describe = Text(
       'Hovedpine',
-      style: TextStyle(
-          fontSize: 35, fontFamily: "MontSerrat", color: Colors.white),
+      textAlign: TextAlign.center,
+      style: GoogleFonts.montserrat(fontSize: 35, color: Colors.white),
     );
     final question = Text(
       'Har du haft hovedpine eller ansigtssmerter det sidste døgn?',
-      style: TextStyle(
-          fontSize: 25, fontFamily: "MontSerrat", color: Colors.white),
+      textAlign: TextAlign.center,
+      style: GoogleFonts.montserrat(fontSize: 20, color: Colors.white),
     );
 
     final fields = Padding(
       padding: EdgeInsets.only(top: 10.0),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           describe,
           SizedBox(height: 50),
+          question,
           SizedBox(height: 20),
         ],
       ),
     );
 
-    final yesButton = Material(
+    final nextButton = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(25.0),
-      color: DHCGray,
+      color: DHCGreen,
       child: MaterialButton(
         minWidth: mq.size.width / 1.2,
         padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
         child: Text(
-          "Ja",
+          "Næste",
           textAlign: TextAlign.center,
-          style: TextStyle(
+          style: GoogleFonts.montserrat(
             fontSize: 20.0,
-            color: DHCGreen,
-            fontFamily: "MontSerrat",
-          ),
-        ),
-        onPressed: () async {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => TypeHeadache(),
-            ),
-          );
-        },
-      ),
-    );
-
-    final noButton = Material(
-      elevation: 5.0,
-      borderRadius: BorderRadius.circular(25.0),
-      color: DHCGray,
-      child: MaterialButton(
-        minWidth: mq.size.width / 1.2,
-        padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
-        child: Text(
-          "Nej",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 20.0,
-            color: DHCGreen,
-            fontFamily: "MontSerrat",
+            color: Colors.white,
           ),
         ),
         onPressed: () async {
@@ -98,6 +74,12 @@ class _HeadacheYN extends State<HeadacheYN> {
     );
 
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.white, //change your color here
+        ),
+        backgroundColor: DHCGray,
+      ),
       backgroundColor: backgroundColorDHC,
       body: Form(
         key: _formKey,
@@ -109,8 +91,8 @@ class _HeadacheYN extends State<HeadacheYN> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 fields,
-                yesButton,
-                noButton,
+                YesNo(),
+                nextButton,
                 Padding(
                   padding: EdgeInsets.only(bottom: 150),
                 ),
@@ -118,6 +100,110 @@ class _HeadacheYN extends State<HeadacheYN> {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class YesNo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+      TapboxA(),
+    ]);
+  }
+}
+
+class TapboxA extends StatefulWidget {
+  TapboxA({Key key}) : super(key: key);
+
+  @override
+  _TapboxAState createState() => _TapboxAState();
+}
+
+class _TapboxAState extends State<TapboxA> {
+  List<bool> _isSelected = [false, false];
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ToggleButtons(
+        children: <Widget>[
+          Container(
+            width: (MediaQuery.of(context).size.width - 36) / 3,
+            child: Center(
+              child: Text(
+                _isSelected[0] ? 'NEJ' : 'NEJ',
+                style: _isSelected[0]
+                    ? TextStyle(
+                        fontSize: 15.0,
+                        color: Colors.white,
+                        fontFamily: "MontSerrat")
+                    : TextStyle(
+                        fontSize: 15.0,
+                        color: Colors.white,
+                        fontFamily: "MontSerrat"),
+              ),
+            ),
+          ),
+          Container(
+            width: (MediaQuery.of(context).size.width - 36) / 3,
+            child: Center(
+              child: Text(
+                _isSelected[1] ? 'JA' : 'JA',
+                style: _isSelected[1]
+                    ? TextStyle(
+                        fontSize: 15.0,
+                        color: Colors.white,
+                        fontFamily: "MontSerrat")
+                    : TextStyle(
+                        fontSize: 15.0,
+                        color: Colors.white,
+                        fontFamily: "MontSerrat"),
+              ),
+            ),
+          ),
+        ],
+        isSelected: _isSelected,
+
+        onPressed: (int index) async {
+          final prefs = await SharedPreferences.getInstance();
+
+          setState(() {
+            if (_isSelected[0] == false && _isSelected[1] == false) {
+              _isSelected[index] = !_isSelected[index];
+            } else if (_isSelected[0] == false) {
+              if (_isSelected[1] == true) {
+                _isSelected[1] = !_isSelected[1];
+              }
+
+              _isSelected[index] = !_isSelected[index];
+            } else if (_isSelected[1] == false) {
+              if (_isSelected[0] == true) {
+                _isSelected[0] = !_isSelected[0];
+              }
+
+              _isSelected[index] = !_isSelected[index];
+            }
+            if (_isSelected[0] == true) {
+              prefs.setString('HeeadacheYN', "Nej");
+            } else if (_isSelected[1] == true) {
+              prefs.setString('HeeadacheYN', "Ja");
+            } else {
+              prefs.setString('HeeadacheYN', "0");
+            }
+            //
+          });
+        },
+        // region example 1
+        color: DHCGray,
+        selectedColor: DHCGreen,
+        fillColor: DHCGreen,
+        // endregion
+        // region example 2
+        borderColor: DHCGreen,
+        selectedBorderColor: DHCGreen,
+        borderRadius: BorderRadius.all(Radius.circular(25)),
+        // endregion
       ),
     );
   }

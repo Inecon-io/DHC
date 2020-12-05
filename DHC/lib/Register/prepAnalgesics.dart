@@ -126,6 +126,12 @@ class _PrepAnalgesics extends State<PrepAnalgesics> {
     );
 
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.white, //change your color here
+        ),
+        backgroundColor: DHCGray,
+      ),
       backgroundColor: backgroundColorDHC,
       body: Form(
         key: _formKey,

@@ -10,6 +10,7 @@ import 'home.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]).then((_) {
     runApp(MyApp());
@@ -26,6 +27,7 @@ class MyApp extends StatefulWidget {
 class Second extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    ThemeData(fontFamily: 'Raleway');
     return ListView(children: <Widget>[
       SizedBox(height: 70),
       UnderText(),

@@ -126,6 +126,12 @@ class _AttacksTriNe extends State<AttacksTriNe> {
     );
 
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.white, //change your color here
+        ),
+        backgroundColor: DHCGray,
+      ),
       backgroundColor: backgroundColorDHC,
       body: Form(
         key: _formKey,

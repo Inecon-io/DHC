@@ -23,79 +23,13 @@ class _TypeHeadache extends State<TypeHeadache> {
     //Firebase.initializeApp();
     void showAlertDialog(BuildContext context) {}
 
-    final emailField = TextFormField(
-      controller: _emailController,
-      keyboardType: TextInputType.emailAddress,
-      style: TextStyle(
-        color: Colors.black,
-      ),
-      cursorColor: Colors.black,
-      decoration: InputDecoration(
-        suffixIcon: Icon(
-          Icons.email,
-          color: Colors.grey,
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(30.0)),
-          borderSide: BorderSide(color: Color(0xfffb8900), width: 2.0),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(30.0)),
-          borderSide: BorderSide(color: Colors.black, width: 1.0),
-        ),
-        labelText: 'mail@mail.dk',
-        labelStyle: TextStyle(fontFamily: "MontSerrat", color: Colors.grey),
-        hintText: 'email',
-        hintStyle: TextStyle(fontFamily: "MontSerrat", color: Colors.black),
-      ),
-    );
-
-    final passwordField = Column(
-      children: <Widget>[
-        TextFormField(
-          obscureText: true,
-          controller: _passwordController,
-          style: TextStyle(
-            color: Colors.black,
-          ),
-          cursorColor: Colors.black,
-          decoration: InputDecoration(
-            suffixIcon: IconButton(
-              icon: Icon(Icons.visibility),
-              color: Colors.grey,
-              onPressed: () {
-                setState(() => this._showPassword = !this._showPassword);
-              },
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(30.0)),
-              borderSide: BorderSide(color: DHCGreen, width: 2.0),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(30.0)),
-              borderSide: BorderSide(color: Colors.black, width: 1.0),
-            ),
-            labelText: 'password',
-            labelStyle: TextStyle(fontFamily: "MontSerrat", color: Colors.grey),
-            hintText: 'password',
-            hintStyle: TextStyle(fontFamily: "MontSerrat", color: Colors.black),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.all(2.0),
-        ),
-      ],
-    );
-
     final fields = Padding(
       padding: EdgeInsets.only(top: 10.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           SizedBox(height: 50),
-          emailField,
           SizedBox(height: 20),
-          passwordField,
         ],
       ),
     );
@@ -232,6 +166,12 @@ class _TypeHeadache extends State<TypeHeadache> {
     );
 
     return Scaffold(
+      appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.white, //change your color here
+        ),
+        backgroundColor: DHCGray,
+      ),
       backgroundColor: backgroundColorDHC,
       body: Form(
         key: _formKey,
