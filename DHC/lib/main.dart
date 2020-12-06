@@ -27,7 +27,7 @@ class MyApp extends StatefulWidget {
 class Second extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    ThemeData(fontFamily: 'Raleway');
+    ThemeData(fontFamily: 'MontSerrat');
     return ListView(children: <Widget>[
       SizedBox(height: 70),
       UnderText(),

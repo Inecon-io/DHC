@@ -2,6 +2,7 @@ import 'package:DHC/Register/clusterAverage.dart';
 import 'package:flutter/material.dart';
 import 'package:DHC/globalVariables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Attacks extends StatefulWidget {
   @override

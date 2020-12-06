@@ -2,6 +2,7 @@ import 'package:DHC/Register/trineAttacks.dart';
 import 'package:DHC/Register/clusterAttacks.dart';
 import 'package:DHC/Register/duration.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:DHC/globalVariables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -22,13 +23,23 @@ class _TypeHeadache extends State<TypeHeadache> {
     //future:
     //Firebase.initializeApp();
     void showAlertDialog(BuildContext context) {}
-
+    final describe = Text(
+      'Type af hovedpine',
+      textAlign: TextAlign.center,
+      style: GoogleFonts.montserrat(fontSize: 35, color: Colors.white),
+    );
+    final question = Text(
+      'Hvilken type hovedpine var den mest signifikante i det sidste døgn?',
+      textAlign: TextAlign.center,
+      style: GoogleFonts.montserrat(fontSize: 20, color: Colors.white),
+    );
     final fields = Padding(
       padding: EdgeInsets.only(top: 10.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          SizedBox(height: 50),
+          describe,
+          question,
           SizedBox(height: 20),
         ],
       ),
@@ -37,7 +48,7 @@ class _TypeHeadache extends State<TypeHeadache> {
     final migreane = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(25.0),
-      color: DHCGray,
+      color: DHCGreen,
       child: MaterialButton(
         minWidth: mq.size.width / 1.2,
         padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
@@ -46,7 +57,7 @@ class _TypeHeadache extends State<TypeHeadache> {
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 20.0,
-            color: DHCGreen,
+            color: Colors.white,
             fontFamily: "MontSerrat",
           ),
         ),
@@ -63,7 +74,7 @@ class _TypeHeadache extends State<TypeHeadache> {
     final tension = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(25.0),
-      color: DHCGray,
+      color: DHCGreen,
       child: MaterialButton(
         minWidth: mq.size.width / 1.2,
         padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
@@ -72,7 +83,7 @@ class _TypeHeadache extends State<TypeHeadache> {
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 20.0,
-            color: DHCGreen,
+            color: Colors.white,
             fontFamily: "MontSerrat",
           ),
         ),
@@ -89,7 +100,7 @@ class _TypeHeadache extends State<TypeHeadache> {
     final cluster = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(25.0),
-      color: DHCGray,
+      color: DHCGreen,
       child: MaterialButton(
         minWidth: mq.size.width / 1.2,
         padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
@@ -98,7 +109,7 @@ class _TypeHeadache extends State<TypeHeadache> {
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 20.0,
-            color: DHCGreen,
+            color: Colors.white,
             fontFamily: "MontSerrat",
           ),
         ),
@@ -112,10 +123,10 @@ class _TypeHeadache extends State<TypeHeadache> {
         },
       ),
     );
-    final trigeminus_neuralgi = Material(
+    final trigeminusNeuralgi = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(25.0),
-      color: DHCGray,
+      color: DHCGreen,
       child: MaterialButton(
         minWidth: mq.size.width / 1.2,
         padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
@@ -124,7 +135,7 @@ class _TypeHeadache extends State<TypeHeadache> {
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 20.0,
-            color: DHCGreen,
+            color: Colors.white,
             fontFamily: "MontSerrat",
           ),
         ),
@@ -141,7 +152,7 @@ class _TypeHeadache extends State<TypeHeadache> {
     final other = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(25.0),
-      color: DHCGray,
+      color: DHCGreen,
       child: MaterialButton(
         minWidth: mq.size.width / 1.2,
         padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
@@ -150,7 +161,7 @@ class _TypeHeadache extends State<TypeHeadache> {
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 20.0,
-            color: DHCGreen,
+            color: Colors.white,
             fontFamily: "MontSerrat",
           ),
         ),
@@ -185,7 +196,8 @@ class _TypeHeadache extends State<TypeHeadache> {
                 fields,
                 migreane,
                 tension,
-                trigeminus_neuralgi,
+                cluster,
+                trigeminusNeuralgi,
                 other,
                 Padding(
                   padding: EdgeInsets.only(bottom: 150),
