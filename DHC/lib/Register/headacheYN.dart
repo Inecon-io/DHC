@@ -185,11 +185,11 @@ class _TapboxAState extends State<TapboxA> {
               _isSelected[index] = !_isSelected[index];
             }
             if (_isSelected[0] == true) {
-              prefs.setString('HeeadacheYN', "Nej");
+              prefs.setString('HeadacheYN', "Nej");
             } else if (_isSelected[1] == true) {
-              prefs.setString('HeeadacheYN', "Ja");
+              prefs.setString('HeadacheYN', "Ja");
             } else {
-              prefs.setString('HeeadacheYN', "0");
+              prefs.setString('HeadacheYN', "0");
             }
             //
           });

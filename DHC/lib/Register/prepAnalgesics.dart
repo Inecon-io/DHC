@@ -22,68 +22,15 @@ class _PrepAnalgesics extends State<PrepAnalgesics> {
     //Firebase.initializeApp();
     void showAlertDialog(BuildContext context) {}
 
-    final emailField = TextFormField(
-      controller: _emailController,
-      keyboardType: TextInputType.emailAddress,
-      style: TextStyle(
-        color: Colors.black,
-      ),
-      cursorColor: Colors.black,
-      decoration: InputDecoration(
-        suffixIcon: Icon(
-          Icons.email,
-          color: Colors.grey,
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(30.0)),
-          borderSide: BorderSide(color: Color(0xfffb8900), width: 2.0),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(30.0)),
-          borderSide: BorderSide(color: Colors.black, width: 1.0),
-        ),
-        labelText: 'mail@mail.dk',
-        labelStyle: TextStyle(fontFamily: "MontSerrat", color: Colors.grey),
-        hintText: 'email',
-        hintStyle: TextStyle(fontFamily: "MontSerrat", color: Colors.black),
-      ),
+    final describe = Text(
+      'Forebyggende medicin',
+      textAlign: TextAlign.center,
+      style: GoogleFonts.montserrat(fontSize: 35, color: Colors.white),
     );
-
-    final passwordField = Column(
-      children: <Widget>[
-        TextFormField(
-          obscureText: true,
-          controller: _passwordController,
-          style: TextStyle(
-            color: Colors.black,
-          ),
-          cursorColor: Colors.black,
-          decoration: InputDecoration(
-            suffixIcon: IconButton(
-              icon: Icon(Icons.visibility),
-              color: Colors.grey,
-              onPressed: () {
-                setState(() => this._showPassword = !this._showPassword);
-              },
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(30.0)),
-              borderSide: BorderSide(color: DHCGreen, width: 2.0),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(30.0)),
-              borderSide: BorderSide(color: Colors.black, width: 1.0),
-            ),
-            labelText: 'password',
-            labelStyle: TextStyle(fontFamily: "MontSerrat", color: Colors.grey),
-            hintText: 'password',
-            hintStyle: TextStyle(fontFamily: "MontSerrat", color: Colors.black),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.all(2.0),
-        ),
-      ],
+    final question = Text(
+      'Er der foretaget ændringer i din forebyggende medicin i de sidste 24 timer?',
+      textAlign: TextAlign.center,
+      style: GoogleFonts.montserrat(fontSize: 20, color: Colors.white),
     );
 
     final fields = Padding(
@@ -91,10 +38,8 @@ class _PrepAnalgesics extends State<PrepAnalgesics> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          SizedBox(height: 50),
-          emailField,
-          SizedBox(height: 20),
-          passwordField,
+          describe,
+          question,
         ],
       ),
     );
@@ -102,17 +47,16 @@ class _PrepAnalgesics extends State<PrepAnalgesics> {
     final loginButton = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(25.0),
-      color: DHCGray,
+      color: DHCGreen,
       child: MaterialButton(
         minWidth: mq.size.width / 1.2,
         padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
         child: Text(
-          "Log ind",
+          "Næste",
           textAlign: TextAlign.center,
-          style: TextStyle(
+          style: GoogleFonts.montserrat(
             fontSize: 20.0,
-            color: DHCGreen,
-            fontFamily: "MontSerrat",
+            color: Colors.white,
           ),
         ),
         onPressed: () async {
@@ -144,6 +88,7 @@ class _PrepAnalgesics extends State<PrepAnalgesics> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 fields,
+                YesNo(),
                 loginButton,
                 Padding(
                   padding: EdgeInsets.only(bottom: 150),
@@ -152,6 +97,110 @@ class _PrepAnalgesics extends State<PrepAnalgesics> {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class YesNo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+      TapboxA(),
+    ]);
+  }
+}
+
+class TapboxA extends StatefulWidget {
+  TapboxA({Key key}) : super(key: key);
+
+  @override
+  _TapboxAState createState() => _TapboxAState();
+}
+
+class _TapboxAState extends State<TapboxA> {
+  List<bool> _isSelected = [false, false];
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ToggleButtons(
+        children: <Widget>[
+          Container(
+            width: (MediaQuery.of(context).size.width - 36) / 3,
+            child: Center(
+              child: Text(
+                _isSelected[0] ? 'NEJ' : 'NEJ',
+                style: _isSelected[0]
+                    ? TextStyle(
+                        fontSize: 15.0,
+                        color: Colors.white,
+                        fontFamily: "MontSerrat")
+                    : TextStyle(
+                        fontSize: 15.0,
+                        color: Colors.white,
+                        fontFamily: "MontSerrat"),
+              ),
+            ),
+          ),
+          Container(
+            width: (MediaQuery.of(context).size.width - 36) / 3,
+            child: Center(
+              child: Text(
+                _isSelected[1] ? 'JA' : 'JA',
+                style: _isSelected[1]
+                    ? TextStyle(
+                        fontSize: 15.0,
+                        color: Colors.white,
+                        fontFamily: "MontSerrat")
+                    : TextStyle(
+                        fontSize: 15.0,
+                        color: Colors.white,
+                        fontFamily: "MontSerrat"),
+              ),
+            ),
+          ),
+        ],
+        isSelected: _isSelected,
+
+        onPressed: (int index) async {
+          final prefs = await SharedPreferences.getInstance();
+
+          setState(() {
+            if (_isSelected[0] == false && _isSelected[1] == false) {
+              _isSelected[index] = !_isSelected[index];
+            } else if (_isSelected[0] == false) {
+              if (_isSelected[1] == true) {
+                _isSelected[1] = !_isSelected[1];
+              }
+
+              _isSelected[index] = !_isSelected[index];
+            } else if (_isSelected[1] == false) {
+              if (_isSelected[0] == true) {
+                _isSelected[0] = !_isSelected[0];
+              }
+
+              _isSelected[index] = !_isSelected[index];
+            }
+            if (_isSelected[0] == true) {
+              prefs.setString('PrepAnalgesicYN', "Nej");
+            } else if (_isSelected[1] == true) {
+              prefs.setString('PrepAnalgesicYN', "Ja");
+            } else {
+              prefs.setString('PrepAnalgesicYN', "0");
+            }
+            //
+          });
+        },
+        // region example 1
+        color: DHCGray,
+        selectedColor: DHCGreen,
+        fillColor: DHCGreen,
+        // endregion
+        // region example 2
+        borderColor: DHCGreen,
+        selectedBorderColor: DHCGreen,
+        borderRadius: BorderRadius.all(Radius.circular(25)),
+        // endregion
       ),
     );
   }

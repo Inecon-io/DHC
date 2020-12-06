@@ -5,12 +5,16 @@ import 'package:DHC/globalVariables.dart';
 import 'package:DHC/login.dart';
 import 'package:DHC/registerNewUser.dart';
 import 'home.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 //Initializing firebase
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-
+  future:
+  Firebase.initializeApp();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]).then((_) {
     runApp(MyApp());

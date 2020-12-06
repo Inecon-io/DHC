@@ -22,68 +22,10 @@ class _ClusterAnalgesics extends State<ClusterAnalgesics> {
     //Firebase.initializeApp();
     void showAlertDialog(BuildContext context) {}
 
-    final emailField = TextFormField(
-      controller: _emailController,
-      keyboardType: TextInputType.emailAddress,
-      style: TextStyle(
-        color: Colors.black,
-      ),
-      cursorColor: Colors.black,
-      decoration: InputDecoration(
-        suffixIcon: Icon(
-          Icons.email,
-          color: Colors.grey,
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(30.0)),
-          borderSide: BorderSide(color: Color(0xfffb8900), width: 2.0),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(30.0)),
-          borderSide: BorderSide(color: Colors.black, width: 1.0),
-        ),
-        labelText: 'mail@mail.dk',
-        labelStyle: TextStyle(fontFamily: "MontSerrat", color: Colors.grey),
-        hintText: 'email',
-        hintStyle: TextStyle(fontFamily: "MontSerrat", color: Colors.black),
-      ),
-    );
-
-    final passwordField = Column(
-      children: <Widget>[
-        TextFormField(
-          obscureText: true,
-          controller: _passwordController,
-          style: TextStyle(
-            color: Colors.black,
-          ),
-          cursorColor: Colors.black,
-          decoration: InputDecoration(
-            suffixIcon: IconButton(
-              icon: Icon(Icons.visibility),
-              color: Colors.grey,
-              onPressed: () {
-                setState(() => this._showPassword = !this._showPassword);
-              },
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(30.0)),
-              borderSide: BorderSide(color: DHCGreen, width: 2.0),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(30.0)),
-              borderSide: BorderSide(color: Colors.black, width: 1.0),
-            ),
-            labelText: 'password',
-            labelStyle: TextStyle(fontFamily: "MontSerrat", color: Colors.grey),
-            hintText: 'password',
-            hintStyle: TextStyle(fontFamily: "MontSerrat", color: Colors.black),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.all(2.0),
-        ),
-      ],
+    final question = Text(
+      'Hvor mange gange anvendte du:',
+      textAlign: TextAlign.center,
+      style: GoogleFonts.montserrat(fontSize: 20, color: Colors.white),
     );
 
     final fields = Padding(
@@ -91,10 +33,7 @@ class _ClusterAnalgesics extends State<ClusterAnalgesics> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          SizedBox(height: 50),
-          emailField,
-          SizedBox(height: 20),
-          passwordField,
+          question,
         ],
       ),
     );
@@ -107,12 +46,11 @@ class _ClusterAnalgesics extends State<ClusterAnalgesics> {
         minWidth: mq.size.width / 1.2,
         padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
         child: Text(
-          "Log ind",
+          "Næste",
           textAlign: TextAlign.center,
-          style: TextStyle(
+          style: GoogleFonts.montserrat(
             fontSize: 20.0,
             color: DHCGreen,
-            fontFamily: "MontSerrat",
           ),
         ),
         onPressed: () async {
