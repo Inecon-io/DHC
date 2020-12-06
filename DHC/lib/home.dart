@@ -5,92 +5,95 @@ import 'package:DHC/MyProfile/pOverview.dart';
 import 'package:DHC/Overview/oMenu.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:DHC/globalVariables.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  final _formKey = GlobalKey<FormState>();
-
+class HomePageScroll extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //future:
-    //Firebase.initializeApp();
-    void showAlertDialog(BuildContext context) {}
+    return ListView(padding: EdgeInsets.only(top: 70.0), children: <Widget>[
+      UnderText(),
+      SizedBox(height: 100),
+      NextButton(),
+    ]);
+  }
+}
 
-    final fields = Padding(
-      padding: EdgeInsets.only(top: 100.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[],
-      ),
-    );
-
-    //double screenwidth = MediaQuery.of(context).size.width;
-
-    final myProfile = FlatButton(
-        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        height: 50,
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => POverview()),
-          );
-        },
-        padding: EdgeInsets.all(0),
-        child: Image.asset('assets/Menu_1.png'));
-    final register = FlatButton(
-        height: 50,
-        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => UnFilledDays()),
-          );
-        },
-        padding: EdgeInsets.all(0),
-        child: Image.asset('assets/Menu_2.png'));
-    final overview = FlatButton(
-        height: 50,
-        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => OMenu()),
-          );
-        },
-        child: Image.asset('assets/Menu_3.png'));
-    final info = FlatButton(
-        height: 50,
-        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Information()),
-          );
-        },
-        child: Image.asset('assets/Menu_4.png'));
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColorDHC,
-      body: Form(
-        key: _formKey,
-        child: SingleChildScrollView(
-          child: Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                fields,
-                myProfile,
-                register,
-                overview,
-                info,
-              ],
-            ),
-          ),
+        backgroundColor: backgroundColorDHC, body: HomePageScroll());
+  }
+}
+
+class NextButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        FlatButton(
+            padding: EdgeInsets.zero,
+            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            height: 50,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => POverview()),
+              );
+            },
+            child: Image.asset('assets/Menu_1.png')),
+        FlatButton(
+            padding: EdgeInsets.zero,
+            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            height: 50,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => UnFilledDays()),
+              );
+            },
+            child: Image.asset('assets/Menu_2.png')),
+        FlatButton(
+            padding: EdgeInsets.zero,
+            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            height: 50,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => OMenu()),
+              );
+            },
+            child: Image.asset('assets/Menu_3.png')),
+        FlatButton(
+            padding: EdgeInsets.zero,
+            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            height: 50,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Information()),
+              );
+            },
+            child: Image.asset('assets/Menu_4.png')),
+      ],
+    );
+  }
+}
+
+class UnderText extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(width: 20),
+        Text(
+          'Hovedpine \nkalenderen',
+          style: GoogleFonts.montserrat(fontSize: 35, color: Colors.white),
+          textAlign: TextAlign.center,
         ),
-      ),
+      ],
     );
   }
 }

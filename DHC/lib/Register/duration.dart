@@ -34,6 +34,7 @@ class _Duration extends State<Duration> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           describe,
+          SizedBox(height: 20),
           question,
           SizedBox(height: 20),
         ],
@@ -84,6 +85,7 @@ class _Duration extends State<Duration> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 fields,
+                MyStatefulWidget(),
                 nextButton,
                 Padding(
                   padding: EdgeInsets.only(bottom: 150),
@@ -93,6 +95,72 @@ class _Duration extends State<Duration> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class MyStatefulWidget extends StatefulWidget {
+  MyStatefulWidget({Key key}) : super(key: key);
+
+  @override
+  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+}
+
+/// This is the private State class that goes with MyStatefulWidget.
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  String dropdownValue = 'Vælg';
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<String>(
+      value: dropdownValue,
+      icon: Icon(Icons.arrow_downward),
+      iconSize: 24,
+      iconEnabledColor: DHCGreen,
+      elevation: 20,
+      dropdownColor: DHCGray,
+      style: TextStyle(color: DHCGreen, fontSize: 20),
+      underline: Container(
+        height: 2,
+        color: DHCGreen,
+      ),
+      onChanged: (String newValue) {
+        setState(() {
+          dropdownValue = newValue;
+        });
+      },
+      items: <String>[
+        'Vælg',
+        '1 time',
+        '2 timer',
+        '3 timer',
+        '4 timer',
+        '5 timer',
+        '6 timer',
+        '7 timer',
+        '8 timer',
+        '9 timer',
+        '10 timer',
+        '11 timer',
+        '12 timer',
+        '13 timer',
+        '14 timer',
+        '15 timer',
+        '16 timer',
+        '17 timer',
+        '18 timer',
+        '19 timer',
+        '20 timer',
+        '21 timer',
+        '22 timer',
+        '23 timer',
+        '24 timer'
+      ].map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
     );
   }
 }

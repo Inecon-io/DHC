@@ -2,7 +2,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'package:DHC/globalVariables.dart';
 
 import 'home.dart';
@@ -105,17 +105,16 @@ class _LoginViewState extends State<Login> {
     final loginButton = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(25.0),
-      color: DHCGray,
+      color: DHCGreen,
       child: MaterialButton(
         minWidth: mq.size.width / 1.2,
         padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
         child: Text(
           "Log ind",
           textAlign: TextAlign.center,
-          style: TextStyle(
+          style: GoogleFonts.montserrat(
             fontSize: 20.0,
-            color: DHCGreen,
-            fontFamily: "MontSerrat",
+            color: Colors.white,
           ),
         ),
         onPressed: () async {

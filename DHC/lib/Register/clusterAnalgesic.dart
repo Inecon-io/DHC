@@ -39,7 +39,7 @@ class _ClusterAnalgesics extends State<ClusterAnalgesics> {
     final nextButton = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(25.0),
-      color: DHCGray,
+      color: DHCGreen,
       child: MaterialButton(
         minWidth: mq.size.width / 1.2,
         padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
@@ -48,7 +48,7 @@ class _ClusterAnalgesics extends State<ClusterAnalgesics> {
           textAlign: TextAlign.center,
           style: GoogleFonts.montserrat(
             fontSize: 20.0,
-            color: DHCGreen,
+            color: Colors.white,
           ),
         ),
         onPressed: () async {

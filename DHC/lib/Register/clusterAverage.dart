@@ -79,6 +79,7 @@ class _AverageCluster extends State<AverageCluster> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 fields,
+                MyStatefulWidget(),
                 nextButton,
                 Padding(
                   padding: EdgeInsets.only(bottom: 150),
@@ -88,6 +89,54 @@ class _AverageCluster extends State<AverageCluster> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class MyStatefulWidget extends StatefulWidget {
+  MyStatefulWidget({Key key}) : super(key: key);
+
+  @override
+  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+}
+
+/// This is the private State class that goes with MyStatefulWidget.
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  String dropdownValue = 'Vælg';
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<String>(
+      value: dropdownValue,
+      icon: Icon(Icons.arrow_downward),
+      iconSize: 24,
+      iconEnabledColor: DHCGreen,
+      elevation: 20,
+      dropdownColor: DHCGray,
+      style: TextStyle(color: DHCGreen, fontSize: 20),
+      underline: Container(
+        height: 2,
+        color: DHCGreen,
+      ),
+      onChanged: (String newValue) {
+        setState(() {
+          dropdownValue = newValue;
+        });
+      },
+      items: <String>[
+        'Vælg',
+        '1 time',
+        '2 timer',
+        '3 timer',
+        '4 timer',
+        '5 timer',
+        'Mere end 5 timer',
+      ].map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
     );
   }
 }

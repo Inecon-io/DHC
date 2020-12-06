@@ -128,7 +128,7 @@ class NextButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(25.0),
           color: DHCGreen,
           child: MaterialButton(
-            minWidth: mq.size.width / 1.2,
+            minWidth: mq.size.width / 5,
             padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
             child: Text(
               "Start forfra",
@@ -154,7 +154,7 @@ class NextButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(25.0),
           color: DHCGreen,
           child: MaterialButton(
-            minWidth: mq.size.width / 1.2,
+            minWidth: mq.size.width / 5,
             padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
             child: Text(
               "Godkend",

@@ -19,19 +19,8 @@ class PMedicine extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Image.asset(
-                'asset/appicon/AppLogo.png',
-                fit: BoxFit.contain,
-                height: 30,
-              ),
-            ],
-          ),
           iconTheme: IconThemeData(
-            color: Colors.black, //change your color here
+            color: Colors.white, //change your color here
           ),
           backgroundColor: backgroundColorDHC,
         ),

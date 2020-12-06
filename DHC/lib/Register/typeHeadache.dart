@@ -36,6 +36,7 @@ class _TypeHeadache extends State<TypeHeadache> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           describe,
+          SizedBox(height: 20),
           question,
           SizedBox(height: 20),
         ],
@@ -52,10 +53,9 @@ class _TypeHeadache extends State<TypeHeadache> {
         child: Text(
           "Migræne",
           textAlign: TextAlign.center,
-          style: TextStyle(
+          style: GoogleFonts.montserrat(
             fontSize: 20.0,
             color: Colors.white,
-            fontFamily: "MontSerrat",
           ),
         ),
         onPressed: () async {

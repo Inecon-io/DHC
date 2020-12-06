@@ -34,6 +34,7 @@ class _BackGroundPainYN extends State<BackGroundPainYN> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           describe,
+          SizedBox(height: 20),
           question,
           SizedBox(height: 20),
         ],
@@ -50,10 +51,9 @@ class _BackGroundPainYN extends State<BackGroundPainYN> {
         child: Text(
           "Næste",
           textAlign: TextAlign.center,
-          style: TextStyle(
+          style: GoogleFonts.montserrat(
             fontSize: 20.0,
-            color: DHCGreen,
-            fontFamily: "MontSerrat",
+            color: Colors.white,
           ),
         ),
         onPressed: () async {

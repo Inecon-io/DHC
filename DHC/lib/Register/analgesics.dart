@@ -35,6 +35,7 @@ class _Analgesics extends State<Analgesics> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           describe,
+          SizedBox(height: 20),
           question,
           SizedBox(height: 20),
         ],

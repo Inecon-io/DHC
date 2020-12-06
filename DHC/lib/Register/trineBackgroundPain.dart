@@ -33,8 +33,9 @@ class _BackGroundPain extends State<BackGroundPain> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          question,
           describe,
+          SizedBox(height: 20),
+          question,
           SizedBox(height: 20),
         ],
       ),

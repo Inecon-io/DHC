@@ -33,8 +33,9 @@ class _AttacksTriNe extends State<AttacksTriNe> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          question,
           describe,
+          SizedBox(height: 20),
+          question,
           SizedBox(height: 20),
         ],
       ),

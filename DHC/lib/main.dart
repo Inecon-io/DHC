@@ -8,7 +8,7 @@ import 'home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 //Initializing firebase
 
 void main() {
@@ -70,7 +70,7 @@ class _NextButton extends State<NextButton> {
           minWidth: 150.0,
           height: 50.0,
           child: RaisedButton(
-            color: DHCGray,
+            color: DHCGreen,
             shape: new RoundedRectangleBorder(
               side: BorderSide(color: DHCGreen),
               borderRadius: new BorderRadius.circular(30.0),
@@ -120,7 +120,7 @@ class _Register extends State<Register> {
           minWidth: 150.0,
           height: 50.0,
           child: RaisedButton(
-            color: DHCGray,
+            color: DHCGreen,
             shape: new RoundedRectangleBorder(
               side: BorderSide(color: DHCGreen),
               borderRadius: new BorderRadius.circular(30.0),
@@ -152,9 +152,9 @@ class UnderText extends StatelessWidget {
       children: [
         SizedBox(width: 20),
         Text(
-          'Hovedpinekalender',
-          style: TextStyle(
-              fontSize: 35, fontFamily: "MontSerrat", color: Colors.white),
+          'Hovedpine \nkalenderen',
+          style: GoogleFonts.montserrat(fontSize: 35, color: Colors.white),
+          textAlign: TextAlign.center,
         ),
       ],
     );

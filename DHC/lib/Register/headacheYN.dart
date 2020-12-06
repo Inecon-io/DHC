@@ -37,6 +37,7 @@ class _HeadacheYN extends State<HeadacheYN> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           describe,
+          SizedBox(height: 20),
           question,
           SizedBox(height: 20),
         ],
