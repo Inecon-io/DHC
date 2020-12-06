@@ -12,10 +12,7 @@ class TypeHeadache extends StatefulWidget {
 }
 
 class _TypeHeadache extends State<TypeHeadache> {
-  bool _showPassword = false;
   final _formKey = GlobalKey<FormState>();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {

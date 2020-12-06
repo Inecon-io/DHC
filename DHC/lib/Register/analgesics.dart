@@ -10,16 +10,13 @@ class Analgesics extends StatefulWidget {
 }
 
 class _Analgesics extends State<Analgesics> {
-  bool _showPassword = false;
   final _formKey = GlobalKey<FormState>();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context);
     //future:
-    //Firebase.initializeApp();
+    //
 
     final describe = Text(
       'Smertestillende',

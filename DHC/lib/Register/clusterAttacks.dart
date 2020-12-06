@@ -10,10 +10,7 @@ class Attacks extends StatefulWidget {
 }
 
 class _Attacks extends State<Attacks> {
-  bool _showPassword = false;
   final _formKey = GlobalKey<FormState>();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {

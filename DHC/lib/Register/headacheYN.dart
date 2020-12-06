@@ -10,10 +10,7 @@ class HeadacheYN extends StatefulWidget {
 }
 
 class _HeadacheYN extends State<HeadacheYN> {
-  bool _showPassword = false;
   final _formKey = GlobalKey<FormState>();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {

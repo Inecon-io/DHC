@@ -10,10 +10,7 @@ class PrepAnalgesics extends StatefulWidget {
 }
 
 class _PrepAnalgesics extends State<PrepAnalgesics> {
-  bool _showPassword = false;
   final _formKey = GlobalKey<FormState>();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +41,7 @@ class _PrepAnalgesics extends State<PrepAnalgesics> {
       ),
     );
 
-    final loginButton = Material(
+    final nextButton = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(25.0),
       color: DHCGreen,
@@ -89,7 +86,7 @@ class _PrepAnalgesics extends State<PrepAnalgesics> {
               children: <Widget>[
                 fields,
                 YesNo(),
-                loginButton,
+                nextButton,
                 Padding(
                   padding: EdgeInsets.only(bottom: 150),
                 ),

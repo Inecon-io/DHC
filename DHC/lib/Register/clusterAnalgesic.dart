@@ -10,10 +10,7 @@ class ClusterAnalgesics extends StatefulWidget {
 }
 
 class _ClusterAnalgesics extends State<ClusterAnalgesics> {
-  bool _showPassword = false;
   final _formKey = GlobalKey<FormState>();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +35,7 @@ class _ClusterAnalgesics extends State<ClusterAnalgesics> {
       ),
     );
 
-    final loginButton = Material(
+    final nextButton = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(25.0),
       color: DHCGray,
@@ -82,7 +79,7 @@ class _ClusterAnalgesics extends State<ClusterAnalgesics> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 fields,
-                loginButton,
+                nextButton,
                 Padding(
                   padding: EdgeInsets.only(bottom: 150),
                 ),
