@@ -37,6 +37,7 @@ class _PrepAnalgesics extends State<PrepAnalgesics> {
         children: <Widget>[
           describe,
           question,
+          SizedBox(height: 20),
         ],
       ),
     );

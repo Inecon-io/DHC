@@ -18,13 +18,23 @@ class _BackGroundPain extends State<BackGroundPain> {
     //future:
     //Firebase.initializeApp();
     void showAlertDialog(BuildContext context) {}
-
+    final describe = Text(
+      'Baggrundssmerter',
+      textAlign: TextAlign.center,
+      style: GoogleFonts.montserrat(fontSize: 35, color: Colors.white),
+    );
+    final question = Text(
+      'Er dine baggrundssmerter forværret i løbet af det sidste døgn?',
+      textAlign: TextAlign.center,
+      style: GoogleFonts.montserrat(fontSize: 20, color: Colors.white),
+    );
     final fields = Padding(
       padding: EdgeInsets.only(top: 10.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          SizedBox(height: 50),
+          question,
+          describe,
           SizedBox(height: 20),
         ],
       ),

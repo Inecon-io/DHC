@@ -18,13 +18,17 @@ class _Overview extends State<Overview> {
     //future:
     //Firebase.initializeApp();
     void showAlertDialog(BuildContext context) {}
-
+    final describe = Text(
+      'Smertestillende',
+      textAlign: TextAlign.center,
+      style: GoogleFonts.montserrat(fontSize: 35, color: Colors.white),
+    );
     final fields = Padding(
       padding: EdgeInsets.only(top: 10.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          SizedBox(height: 50),
+          describe,
           SizedBox(height: 20),
         ],
       ),
@@ -98,6 +102,7 @@ class _Overview extends State<Overview> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
+                fields,
                 NextButton(),
                 Padding(
                   padding: EdgeInsets.only(bottom: 150),

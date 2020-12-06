@@ -26,7 +26,7 @@ class _TypeHeadache extends State<TypeHeadache> {
       style: GoogleFonts.montserrat(fontSize: 35, color: Colors.white),
     );
     final question = Text(
-      'Hvilken type hovedpine var den mest signifikante i det sidste døgn?',
+      'Hvilken type hovedpine var den mest dominerende i det sidste døgn?',
       textAlign: TextAlign.center,
       style: GoogleFonts.montserrat(fontSize: 20, color: Colors.white),
     );

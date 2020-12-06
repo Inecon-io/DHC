@@ -18,13 +18,23 @@ class _AttacksTriNe extends State<AttacksTriNe> {
     //future:
     //Firebase.initializeApp();
     void showAlertDialog(BuildContext context) {}
-
+    final describe = Text(
+      'Antal anfald',
+      textAlign: TextAlign.center,
+      style: GoogleFonts.montserrat(fontSize: 35, color: Colors.white),
+    );
+    final question = Text(
+      'Hvor mange anfald af jagende smerter har du haft i det sidste døgn?',
+      textAlign: TextAlign.center,
+      style: GoogleFonts.montserrat(fontSize: 20, color: Colors.white),
+    );
     final fields = Padding(
       padding: EdgeInsets.only(top: 10.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          SizedBox(height: 50),
+          question,
+          describe,
           SizedBox(height: 20),
         ],
       ),

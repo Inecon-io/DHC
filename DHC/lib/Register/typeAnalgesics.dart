@@ -18,13 +18,23 @@ class _TypeAnalgesics extends State<TypeAnalgesics> {
     //future:
     //Firebase.initializeApp();
     void showAlertDialog(BuildContext context) {}
-
+    final describe = Text(
+      'Type af smertestillende',
+      textAlign: TextAlign.center,
+      style: GoogleFonts.montserrat(fontSize: 35, color: Colors.white),
+    );
+    final question = Text(
+      'Vælg typer af smerte-stillende du har benyttet',
+      textAlign: TextAlign.center,
+      style: GoogleFonts.montserrat(fontSize: 20, color: Colors.white),
+    );
     final fields = Padding(
       padding: EdgeInsets.only(top: 10.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          SizedBox(height: 50),
+          describe,
+          question,
           SizedBox(height: 20),
         ],
       ),

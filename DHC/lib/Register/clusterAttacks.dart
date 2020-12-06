@@ -37,6 +37,7 @@ class _Attacks extends State<Attacks> {
         children: <Widget>[
           describe,
           question,
+          SizedBox(height: 20),
         ],
       ),
     );

@@ -31,6 +31,7 @@ class _ClusterAnalgesics extends State<ClusterAnalgesics> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           question,
+          SizedBox(height: 20),
         ],
       ),
     );

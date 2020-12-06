@@ -33,7 +33,11 @@ class _Analgesics extends State<Analgesics> {
       padding: EdgeInsets.only(top: 10.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[describe, question],
+        children: <Widget>[
+          describe,
+          question,
+          SizedBox(height: 20),
+        ],
       ),
     );
 
