@@ -85,6 +85,7 @@ class _AttacksTriNe extends State<AttacksTriNe> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 fields,
+                MyStatefulWidget(),
                 nextButton,
                 Padding(
                   padding: EdgeInsets.only(bottom: 150),
@@ -94,6 +95,61 @@ class _AttacksTriNe extends State<AttacksTriNe> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class MyStatefulWidget extends StatefulWidget {
+  MyStatefulWidget({Key key}) : super(key: key);
+
+  @override
+  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+}
+
+/// This is the private State class that goes with MyStatefulWidget.
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  String dropdownValue = 'Vælg';
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<String>(
+      value: dropdownValue,
+      icon: Icon(Icons.arrow_downward),
+      iconSize: 24,
+      iconEnabledColor: DHCGreen,
+      elevation: 20,
+      dropdownColor: DHCGray,
+      style: TextStyle(color: DHCGreen, fontSize: 20),
+      underline: Container(
+        height: 2,
+        color: DHCGreen,
+      ),
+      onChanged: (String newValue) {
+        setState(() {
+          dropdownValue = newValue;
+        });
+      },
+      items: <String>[
+        'Vælg',
+        '1 anfald',
+        '2 anfald',
+        '3 anfald',
+        '4 anfald',
+        '5 anfald',
+        '6 anfald',
+        '7 anfald',
+        '8 anfald',
+        '9 anfald',
+        '10 anfald',
+        '11 anfald',
+        '12 anfald',
+        'Mere end 12 anfald',
+      ].map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
     );
   }
 }

@@ -34,20 +34,20 @@ class _LoginViewState extends State<Login> {
       cursorColor: Colors.black,
       decoration: InputDecoration(
         suffixIcon: Icon(
-          Icons.email,
+          Icons.person,
           color: Colors.grey,
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(30.0)),
-          borderSide: BorderSide(color: Color(0xfffb8900), width: 2.0),
+          borderSide: BorderSide(color: DHCGreen, width: 2.0),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(30.0)),
           borderSide: BorderSide(color: Colors.black, width: 1.0),
         ),
-        labelText: 'mail@mail.dk',
+        labelText: 'DHC bruger',
         labelStyle: TextStyle(fontFamily: "MontSerrat", color: Colors.grey),
-        hintText: 'email',
+        hintText: 'DHC bruger',
         hintStyle: TextStyle(fontFamily: "MontSerrat", color: Colors.black),
       ),
     );
@@ -78,7 +78,7 @@ class _LoginViewState extends State<Login> {
               borderSide: BorderSide(color: Colors.black, width: 1.0),
             ),
             labelText: 'password',
-            labelStyle: TextStyle(fontFamily: "MontSerrat", color: Colors.grey),
+            labelStyle: TextStyle(fontFamily: "montserrat", color: Colors.grey),
             hintText: 'password',
             hintStyle: TextStyle(fontFamily: "MontSerrat", color: Colors.black),
           ),

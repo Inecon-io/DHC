@@ -85,6 +85,7 @@ class _BackGroundPainYN extends State<BackGroundPainYN> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 fields,
+                YesNo(),
                 nextButton,
                 Padding(
                   padding: EdgeInsets.only(bottom: 150),
@@ -93,6 +94,110 @@ class _BackGroundPainYN extends State<BackGroundPainYN> {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class YesNo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+      TapboxA(),
+    ]);
+  }
+}
+
+class TapboxA extends StatefulWidget {
+  TapboxA({Key key}) : super(key: key);
+
+  @override
+  _TapboxAState createState() => _TapboxAState();
+}
+
+class _TapboxAState extends State<TapboxA> {
+  List<bool> _isSelected = [false, false];
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ToggleButtons(
+        children: <Widget>[
+          Container(
+            width: (MediaQuery.of(context).size.width - 36) / 3,
+            child: Center(
+              child: Text(
+                _isSelected[0] ? 'NEJ' : 'NEJ',
+                style: _isSelected[0]
+                    ? TextStyle(
+                        fontSize: 15.0,
+                        color: Colors.white,
+                        fontFamily: "MontSerrat")
+                    : TextStyle(
+                        fontSize: 15.0,
+                        color: Colors.white,
+                        fontFamily: "MontSerrat"),
+              ),
+            ),
+          ),
+          Container(
+            width: (MediaQuery.of(context).size.width - 36) / 3,
+            child: Center(
+              child: Text(
+                _isSelected[1] ? 'JA' : 'JA',
+                style: _isSelected[1]
+                    ? TextStyle(
+                        fontSize: 15.0,
+                        color: Colors.white,
+                        fontFamily: "MontSerrat")
+                    : TextStyle(
+                        fontSize: 15.0,
+                        color: Colors.white,
+                        fontFamily: "MontSerrat"),
+              ),
+            ),
+          ),
+        ],
+        isSelected: _isSelected,
+
+        onPressed: (int index) async {
+          final prefs = await SharedPreferences.getInstance();
+
+          setState(() {
+            if (_isSelected[0] == false && _isSelected[1] == false) {
+              _isSelected[index] = !_isSelected[index];
+            } else if (_isSelected[0] == false) {
+              if (_isSelected[1] == true) {
+                _isSelected[1] = !_isSelected[1];
+              }
+
+              _isSelected[index] = !_isSelected[index];
+            } else if (_isSelected[1] == false) {
+              if (_isSelected[0] == true) {
+                _isSelected[0] = !_isSelected[0];
+              }
+
+              _isSelected[index] = !_isSelected[index];
+            }
+            if (_isSelected[0] == true) {
+              prefs.setString('TriNeBackGroundPainYN', "Nej");
+            } else if (_isSelected[1] == true) {
+              prefs.setString('TriNeBackGroundPainYN', "Ja");
+            } else {
+              prefs.setString('TriNeBackGroundPainYN', "0");
+            }
+            //
+          });
+        },
+        // region example 1
+        color: DHCGray,
+        selectedColor: DHCGreen,
+        fillColor: DHCGreen,
+        // endregion
+        // region example 2
+        borderColor: DHCGreen,
+        selectedBorderColor: DHCGreen,
+        borderRadius: BorderRadius.all(Radius.circular(25)),
+        // endregion
       ),
     );
   }
