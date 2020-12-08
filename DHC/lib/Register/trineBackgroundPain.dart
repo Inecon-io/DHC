@@ -179,11 +179,11 @@ class _TapboxAState extends State<TapboxA> {
               _isSelected[index] = !_isSelected[index];
             }
             if (_isSelected[0] == true) {
-              prefs.setString('HeadacheYN', "Nej");
+              prefs.setString('TriNeBackGroundPain', "Nej");
             } else if (_isSelected[1] == true) {
-              prefs.setString('HeadacheYN', "Ja");
+              prefs.setString('TriNeBackGroundPain', "Ja");
             } else {
-              prefs.setString('HeadacheYN', "0");
+              prefs.setString('TriNeBackGroundPain', "0");
             }
             //
           });

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:DHC/globalVariables.dart';
-import 'population_data.dart';
+import 'package:DHC/Overview/population_data.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
+import 'package:shared_preferences/shared_preferences.dart';
 
-class TableOverview extends StatelessWidget {
+class DaysClusterGraph extends StatelessWidget {
   // Defining the data
   final List<PopulationData> data = [
     PopulationData(

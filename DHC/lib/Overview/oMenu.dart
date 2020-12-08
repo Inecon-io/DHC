@@ -1,4 +1,13 @@
-import 'package:DHC/Overview/oTable.dart';
+import 'package:DHC/Overview/Graphs/daysAnalgesicsGraph.dart';
+import 'package:DHC/Overview/Graphs/daysClusterGraph.dart';
+import 'package:DHC/Overview/Graphs/daysheadacheGraph.dart';
+import 'package:DHC/Overview/Graphs/intensityGraph.dart';
+import 'package:DHC/Overview/Graphs/prepmmedicinGraph.dart';
+import 'package:DHC/Overview/Tables/daysAnalgesicsTable.dart';
+import 'package:DHC/Overview/Tables/daysClusterTable.dart';
+import 'package:DHC/Overview/Tables/daysHeadacheTable.dart';
+import 'package:DHC/Overview/Tables/intensityTable.dart';
+import 'package:DHC/Overview/Tables/prepMedicineTable.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:DHC/globalVariables.dart';
@@ -8,6 +17,10 @@ class OMenu extends StatefulWidget {
   @override
   _OMenu createState() => _OMenu();
 }
+
+String startDateString = "--/--/----";
+String endDateString = "--/--/----";
+DateTime selectedDate = DateTime.now();
 
 class _OMenu extends State<OMenu> {
   final _formKey = GlobalKey<FormState>();
@@ -24,6 +37,93 @@ class _OMenu extends State<OMenu> {
       style: GoogleFonts.montserrat(fontSize: 35, color: Colors.white),
     );
 
+    final start = Text(
+      selectedDate.toString(),
+      textAlign: TextAlign.center,
+      style: GoogleFonts.montserrat(fontSize: 15, color: Colors.white),
+    );
+    final end = Text(
+      endDateString,
+      textAlign: TextAlign.center,
+      style: GoogleFonts.montserrat(fontSize: 15, color: Colors.white),
+    );
+
+    final startDate = Material(
+      elevation: 5.0,
+      borderRadius: BorderRadius.circular(25.0),
+      color: DHCGreen,
+      child: MaterialButton(
+        minWidth: mq.size.width / 3.2,
+        padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
+        child: Text(
+          "Fra",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 20.0,
+            color: Colors.white,
+            fontFamily: "MontSerrat",
+          ),
+        ),
+        onPressed: () async {
+          showDatePicker(
+            context: context,
+            initialDate: DateTime.now(),
+            firstDate: DateTime(2000),
+            lastDate: DateTime(2025),
+          );
+        },
+      ),
+    );
+    final endDate = Material(
+      elevation: 5.0,
+      borderRadius: BorderRadius.circular(25.0),
+      color: DHCGreen,
+      child: MaterialButton(
+        minWidth: mq.size.width / 3.2,
+        padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
+        child: Text(
+          "Til",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 20.0,
+            color: Colors.white,
+            fontFamily: "MontSerrat",
+          ),
+        ),
+        onPressed: () async {
+          showDatePicker(
+            context: context,
+            initialDate: DateTime.now(),
+            firstDate: DateTime(2000),
+            lastDate: DateTime(2025),
+          );
+        },
+      ),
+    );
+    final startEndLabels = Padding(
+      padding: EdgeInsets.only(top: 10.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          start,
+          SizedBox(width: 20),
+          end,
+          SizedBox(height: 20),
+        ],
+      ),
+    );
+    final startEnd = Padding(
+      padding: EdgeInsets.only(top: 10.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          startDate,
+          SizedBox(width: 20),
+          endDate,
+          SizedBox(height: 20),
+        ],
+      ),
+    );
     final fields = Padding(
       padding: EdgeInsets.only(top: 10.0),
       child: Column(
@@ -31,11 +131,9 @@ class _OMenu extends State<OMenu> {
         children: <Widget>[
           describe,
           SizedBox(height: 20),
-          SizedBox(height: 20),
         ],
       ),
     );
-
     final headacheDays = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(25.0),
@@ -52,12 +150,22 @@ class _OMenu extends State<OMenu> {
           ),
         ),
         onPressed: () async {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => TableOverview(),
-            ),
-          );
+          final prefs = await SharedPreferences.getInstance();
+          if (prefs.getString("Graph") == "1") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DaysHeadacheGraph(),
+              ),
+            );
+          } else if (prefs.getString("Graph") == "0") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DaysHeadacheTable(),
+              ),
+            );
+          } else {}
         },
       ),
     );
@@ -78,12 +186,22 @@ class _OMenu extends State<OMenu> {
           ),
         ),
         onPressed: () async {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => TableOverview(),
-            ),
-          );
+          final prefs = await SharedPreferences.getInstance();
+          if (prefs.getString("Graph") == "1") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DaysClusterGraph(),
+              ),
+            );
+          } else if (prefs.getString("Graph") == "0") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DaysClusterTable(),
+              ),
+            );
+          } else {}
         },
       ),
     );
@@ -104,12 +222,22 @@ class _OMenu extends State<OMenu> {
           ),
         ),
         onPressed: () async {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => TableOverview(),
-            ),
-          );
+          final prefs = await SharedPreferences.getInstance();
+          if (prefs.getString("Graph") == "1") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DaysAnalgesicsGraph(),
+              ),
+            );
+          } else if (prefs.getString("Graph") == "0") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DaysAnalgesicsTable(),
+              ),
+            );
+          } else {}
         },
       ),
     );
@@ -130,12 +258,22 @@ class _OMenu extends State<OMenu> {
           ),
         ),
         onPressed: () async {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => TableOverview(),
-            ),
-          );
+          final prefs = await SharedPreferences.getInstance();
+          if (prefs.getString("Graph") == "1") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => IntensityGraph(),
+              ),
+            );
+          } else if (prefs.getString("Graph") == "0") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => IntensityTable(),
+              ),
+            );
+          } else {}
         },
       ),
     );
@@ -156,12 +294,22 @@ class _OMenu extends State<OMenu> {
           ),
         ),
         onPressed: () async {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => TableOverview(),
-            ),
-          );
+          final prefs = await SharedPreferences.getInstance();
+          if (prefs.getString("Graph") == "1") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => PrepMedicineGraph(),
+              ),
+            );
+          } else if (prefs.getString("Graph") == "0") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => PrepMedicineTable(),
+              ),
+            );
+          } else {}
         },
       ),
     );
@@ -183,6 +331,8 @@ class _OMenu extends State<OMenu> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
+                startEndLabels,
+                startEnd,
                 fields,
                 YesNo(),
                 headacheDays,
@@ -282,11 +432,11 @@ class _TapboxAState extends State<TapboxA> {
               _isSelected[index] = !_isSelected[index];
             }
             if (_isSelected[0] == true) {
-              prefs.setString('TriNeBackGroundPainYN', "Nej");
+              prefs.setString('Graph', "1");
             } else if (_isSelected[1] == true) {
-              prefs.setString('TriNeBackGroundPainYN', "Ja");
+              prefs.setString('Graph', "0");
             } else {
-              prefs.setString('TriNeBackGroundPainYN', "0");
+              prefs.setString('Graph', "-1");
             }
             //
           });
