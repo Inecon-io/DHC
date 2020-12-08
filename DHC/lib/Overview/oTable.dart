@@ -1,67 +1,87 @@
-import 'package:DHC/Overview/oMenu.dart';
-
 import 'package:flutter/material.dart';
 import 'package:DHC/globalVariables.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'population_data.dart';
+import 'package:charts_flutter/flutter.dart' as charts;
 
-class TableOverview extends StatefulWidget {
-  @override
-  _Table createState() => _Table();
-}
+class TableOverview extends StatelessWidget {
+  // Defining the data
+  final List<PopulationData> data = [
+    PopulationData(
+        year: 1880,
+        population: 50189209,
+        barColor: charts.ColorUtil.fromDartColor(Colors.lightBlue)),
+    PopulationData(
+        year: 1890,
+        population: 62979766,
+        barColor: charts.ColorUtil.fromDartColor(Colors.lightBlue)),
+    PopulationData(
+        year: 1900,
+        population: 76212168,
+        barColor: charts.ColorUtil.fromDartColor(Colors.lightBlue)),
+    PopulationData(
+        year: 1910,
+        population: 92228496,
+        barColor: charts.ColorUtil.fromDartColor(Colors.lightBlue)),
+    PopulationData(
+        year: 1920,
+        population: 106021537,
+        barColor: charts.ColorUtil.fromDartColor(Colors.blue)),
+    PopulationData(
+        year: 1930,
+        population: 123202624,
+        barColor: charts.ColorUtil.fromDartColor(Colors.blue)),
+    PopulationData(
+        year: 1940,
+        population: 132164569,
+        barColor: charts.ColorUtil.fromDartColor(Colors.blue)),
+    PopulationData(
+        year: 1950,
+        population: 151325798,
+        barColor: charts.ColorUtil.fromDartColor(Colors.blue)),
+    PopulationData(
+        year: 1960,
+        population: 179323175,
+        barColor: charts.ColorUtil.fromDartColor(Colors.blue)),
+    PopulationData(
+        year: 1970,
+        population: 203302031,
+        barColor: charts.ColorUtil.fromDartColor(Colors.purple)),
+    PopulationData(
+        year: 1980,
+        population: 226542199,
+        barColor: charts.ColorUtil.fromDartColor(Colors.purple)),
+    PopulationData(
+        year: 1990,
+        population: 248709873,
+        barColor: charts.ColorUtil.fromDartColor(Colors.purple)),
+    PopulationData(
+        year: 2000,
+        population: 281421906,
+        barColor: charts.ColorUtil.fromDartColor(Colors.purple)),
+    PopulationData(
+        year: 2010,
+        population: 307745538,
+        barColor: charts.ColorUtil.fromDartColor(Colors.black)),
+    PopulationData(
+        year: 2017,
+        population: 323148586,
+        barColor: charts.ColorUtil.fromDartColor(Colors.black)),
+  ];
 
-class _Table extends State<TableOverview> {
-  final _formKey = GlobalKey<FormState>();
+  _getSeriesData() {
+    List<charts.Series<PopulationData, String>> series = [
+      charts.Series(
+          id: "Population",
+          data: data,
+          domainFn: (PopulationData series, _) => series.year.toString(),
+          measureFn: (PopulationData series, _) => series.population,
+          colorFn: (PopulationData series, _) => series.barColor)
+    ];
+    return series;
+  }
 
   @override
   Widget build(BuildContext context) {
-    final mq = MediaQuery.of(context);
-    //future:
-    //Firebase.initializeApp();
-    void showAlertDialog(BuildContext context) {}
-    final describe = Text(
-      'Oversigt',
-      textAlign: TextAlign.center,
-      style: GoogleFonts.montserrat(fontSize: 35, color: Colors.white),
-    );
-
-    final fields = Padding(
-      padding: EdgeInsets.only(top: 10.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          describe,
-          SizedBox(height: 20),
-        ],
-      ),
-    );
-
-    final nextButton = Material(
-      elevation: 5.0,
-      borderRadius: BorderRadius.circular(25.0),
-      color: DHCGreen,
-      child: MaterialButton(
-        minWidth: mq.size.width / 1.2,
-        padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
-        child: Text(
-          "Tilbage",
-          textAlign: TextAlign.center,
-          style: GoogleFonts.montserrat(
-            fontSize: 20.0,
-            color: Colors.white,
-          ),
-        ),
-        onPressed: () async {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => OMenu(),
-            ),
-          );
-        },
-      ),
-    );
-
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
@@ -70,21 +90,34 @@ class _Table extends State<TableOverview> {
         backgroundColor: DHCGray,
       ),
       backgroundColor: backgroundColorDHC,
-      body: Form(
-        key: _formKey,
-        child: SingleChildScrollView(
-          padding: EdgeInsets.all(36),
-          child: Container(
-            height: mq.size.height,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                fields,
-                nextButton,
-                Padding(
-                  padding: EdgeInsets.only(bottom: 150),
-                ),
-              ],
+      body: Center(
+        child: Container(
+          height: 400,
+          padding: EdgeInsets.all(20),
+          child: Card(
+            color: Colors.grey,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: <Widget>[
+                  Text(
+                    "Population of U.S. over the years",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Expanded(
+                    child: charts.BarChart(
+                      _getSeriesData(),
+                      animate: true,
+                      domainAxis: charts.OrdinalAxisSpec(
+                          renderSpec:
+                              charts.SmallTickRendererSpec(labelRotation: 60)),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
