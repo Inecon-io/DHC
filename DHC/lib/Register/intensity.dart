@@ -17,7 +17,7 @@ class _Intensity extends State<Intensity> {
     final mq = MediaQuery.of(context);
     //future:
     //Firebase.initializeApp();
-    void showAlertDialog(BuildContext context) {}
+
     final describe = Text(
       'Smerternes styrke',
       textAlign: TextAlign.center,
@@ -41,19 +41,19 @@ class _Intensity extends State<Intensity> {
       ),
     );
 
-    final nextButton = Material(
+    final oneButton = Material(
       elevation: 5.0,
-      borderRadius: BorderRadius.circular(25.0),
-      color: DHCGreen,
+      borderRadius: BorderRadius.circular(15.0),
+      color: colorOne,
       child: MaterialButton(
-        minWidth: mq.size.width / 1.2,
+        minWidth: mq.size.width / 3.2,
         padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
         child: Text(
-          "Næste",
+          "1",
           textAlign: TextAlign.center,
           style: GoogleFonts.montserrat(
             fontSize: 20.0,
-            color: Colors.white,
+            color: Colors.black,
           ),
         ),
         onPressed: () async {
@@ -64,6 +64,272 @@ class _Intensity extends State<Intensity> {
             ),
           );
         },
+      ),
+    );
+    final threeButton = Material(
+      elevation: 5.0,
+      borderRadius: BorderRadius.circular(15.0),
+      color: colorThree,
+      child: MaterialButton(
+        minWidth: mq.size.width / 3.2,
+        padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
+        child: Text(
+          "3",
+          textAlign: TextAlign.center,
+          style: GoogleFonts.montserrat(
+            fontSize: 20.0,
+            color: Colors.black,
+          ),
+        ),
+        onPressed: () async {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Analgesics(),
+            ),
+          );
+        },
+      ),
+    );
+    final fiveButton = Material(
+      elevation: 5.0,
+      borderRadius: BorderRadius.circular(15.0),
+      color: colorFive,
+      child: MaterialButton(
+        minWidth: mq.size.width / 3.2,
+        padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
+        child: Text(
+          "5",
+          textAlign: TextAlign.center,
+          style: GoogleFonts.montserrat(
+            fontSize: 20.0,
+            color: Colors.black,
+          ),
+        ),
+        onPressed: () async {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Analgesics(),
+            ),
+          );
+        },
+      ),
+    );
+    final sevenButton = Material(
+      elevation: 5.0,
+      borderRadius: BorderRadius.circular(15.0),
+      color: colorSeven,
+      child: MaterialButton(
+        minWidth: mq.size.width / 3.2,
+        padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
+        child: Text(
+          "7",
+          textAlign: TextAlign.center,
+          style: GoogleFonts.montserrat(
+            fontSize: 20.0,
+            color: Colors.black,
+          ),
+        ),
+        onPressed: () async {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Analgesics(),
+            ),
+          );
+        },
+      ),
+    );
+    final nineButton = Material(
+      elevation: 5.0,
+      borderRadius: BorderRadius.circular(15.0),
+      color: colorNine,
+      child: MaterialButton(
+        minWidth: mq.size.width / 3.2,
+        padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
+        child: Text(
+          "9",
+          textAlign: TextAlign.center,
+          style: GoogleFonts.montserrat(
+            fontSize: 20.0,
+            color: Colors.black,
+          ),
+        ),
+        onPressed: () async {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Analgesics(),
+            ),
+          );
+        },
+      ),
+    );
+    final twoButton = Material(
+      elevation: 5.0,
+      borderRadius: BorderRadius.circular(15.0),
+      color: colorTwo,
+      child: MaterialButton(
+        minWidth: mq.size.width / 3.2,
+        padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
+        child: Text(
+          "2",
+          textAlign: TextAlign.center,
+          style: GoogleFonts.montserrat(
+            fontSize: 20.0,
+            color: Colors.black,
+          ),
+        ),
+        onPressed: () async {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Analgesics(),
+            ),
+          );
+        },
+      ),
+    );
+    final fourButton = Material(
+      elevation: 5.0,
+      borderRadius: BorderRadius.circular(15.0),
+      color: colorFour,
+      child: MaterialButton(
+        minWidth: mq.size.width / 3.2,
+        padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
+        child: Text(
+          "4",
+          textAlign: TextAlign.center,
+          style: GoogleFonts.montserrat(
+            fontSize: 20.0,
+            color: Colors.black,
+          ),
+        ),
+        onPressed: () async {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Analgesics(),
+            ),
+          );
+        },
+      ),
+    );
+    final sixButton = Material(
+      elevation: 5.0,
+      borderRadius: BorderRadius.circular(15.0),
+      color: colorSix,
+      child: MaterialButton(
+        minWidth: mq.size.width / 3.2,
+        padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
+        child: Text(
+          "6",
+          textAlign: TextAlign.center,
+          style: GoogleFonts.montserrat(
+            fontSize: 20.0,
+            color: Colors.black,
+          ),
+        ),
+        onPressed: () async {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Analgesics(),
+            ),
+          );
+        },
+      ),
+    );
+    final eightButton = Material(
+      elevation: 5.0,
+      borderRadius: BorderRadius.circular(15.0),
+      color: colorEight,
+      child: MaterialButton(
+        minWidth: mq.size.width / 3.2,
+        padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
+        child: Text(
+          "8",
+          textAlign: TextAlign.center,
+          style: GoogleFonts.montserrat(
+            fontSize: 20.0,
+            color: Colors.black,
+          ),
+        ),
+        onPressed: () async {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Analgesics(),
+            ),
+          );
+        },
+      ),
+    );
+    final tenButton = Material(
+      elevation: 5.0,
+      borderRadius: BorderRadius.circular(15.0),
+      color: colorTen,
+      child: MaterialButton(
+        minWidth: mq.size.width / 3.2,
+        padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
+        child: Text(
+          "10",
+          textAlign: TextAlign.center,
+          style: GoogleFonts.montserrat(
+            fontSize: 20.0,
+            color: Colors.black,
+          ),
+        ),
+        onPressed: () async {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Analgesics(),
+            ),
+          );
+        },
+      ),
+    );
+    final leftbuttons = Padding(
+      padding: EdgeInsets.only(top: 10.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          oneButton,
+          SizedBox(height: 20),
+          threeButton,
+          SizedBox(height: 20),
+          fiveButton,
+          SizedBox(height: 20),
+          sevenButton,
+          SizedBox(height: 20),
+          nineButton,
+        ],
+      ),
+    );
+    final rightbuttons = Padding(
+      padding: EdgeInsets.only(top: 10.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          twoButton,
+          SizedBox(height: 20),
+          fourButton,
+          SizedBox(height: 20),
+          sixButton,
+          SizedBox(height: 20),
+          eightButton,
+          SizedBox(height: 20),
+          tenButton,
+        ],
+      ),
+    );
+    final buttons = Padding(
+      padding: EdgeInsets.only(top: 10.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[leftbuttons, SizedBox(width: 20), rightbuttons],
       ),
     );
 
@@ -85,7 +351,7 @@ class _Intensity extends State<Intensity> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 fields,
-                nextButton,
+                buttons,
                 Padding(
                   padding: EdgeInsets.only(bottom: 150),
                 ),

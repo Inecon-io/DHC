@@ -19,6 +19,12 @@ class _TypeAnalgesics extends State<TypeAnalgesics> {
     });
   }
 
+  bool weakanalgesicbool = false;
+  bool triptanebool = false;
+  bool dontknowbool = false;
+  bool combinationbool = false;
+  bool stronganalgesicbool = false;
+  bool oxygenbool = false;
   @override
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context);
@@ -47,7 +53,109 @@ class _TypeAnalgesics extends State<TypeAnalgesics> {
         ],
       ),
     );
+    final weakAnalgesics = ButtonTheme(
+      minWidth: 250.0,
+      height: 50.0,
+      child: RaisedButton(
+        child: new Text('Svage smertestillende'),
+        textColor: Colors.white,
+        shape: new RoundedRectangleBorder(
+          borderRadius: new BorderRadius.circular(15.0),
+        ),
+        color: weakanalgesicbool ? DHCGreen : DHCGray,
+        onPressed: () async =>
+            setState(() => weakanalgesicbool = !weakanalgesicbool),
+      ),
+    );
+    final triptanes = ButtonTheme(
+      minWidth: 250.0,
+      height: 50.0,
+      child: RaisedButton(
+        child: new Text('Triptaner'),
+        textColor: Colors.white,
+        shape: new RoundedRectangleBorder(
+          borderRadius: new BorderRadius.circular(15.0),
+        ),
+        color: triptanebool ? DHCGreen : DHCGray,
+        onPressed: () async => setState(() => triptanebool = !triptanebool),
+      ),
+    );
+    final combination = ButtonTheme(
+      minWidth: 250.0,
+      height: 50.0,
+      child: RaisedButton(
+        child: new Text('Kombinations medicin'),
+        textColor: Colors.white,
+        shape: new RoundedRectangleBorder(
+          borderRadius: new BorderRadius.circular(15.0),
+        ),
+        color: combinationbool ? DHCGreen : DHCGray,
+        onPressed: () async =>
+            setState(() => combinationbool = !combinationbool),
+      ),
+    );
 
+    final stronganalgesics = ButtonTheme(
+      minWidth: 250.0,
+      height: 50.0,
+      child: RaisedButton(
+        child: new Text('Stærke smertestillende'),
+        textColor: Colors.white,
+        shape: new RoundedRectangleBorder(
+          borderRadius: new BorderRadius.circular(15.0),
+        ),
+        color: stronganalgesicbool ? DHCGreen : DHCGray,
+        onPressed: () async =>
+            setState(() => stronganalgesicbool = !stronganalgesicbool),
+      ),
+    );
+    final oxygen = ButtonTheme(
+      minWidth: 250.0,
+      height: 50.0,
+      child: RaisedButton(
+        child: new Text('Ilt'),
+        textColor: Colors.white,
+        shape: new RoundedRectangleBorder(
+          borderRadius: new BorderRadius.circular(15.0),
+        ),
+        color: oxygenbool ? DHCGreen : DHCGray,
+        onPressed: () async => setState(() => oxygenbool = !oxygenbool),
+      ),
+    );
+
+    final dontknow = ButtonTheme(
+      minWidth: 250.0,
+      height: 50.0,
+      child: RaisedButton(
+        child: new Text('Ved ikke'),
+        textColor: Colors.white,
+        shape: new RoundedRectangleBorder(
+          borderRadius: new BorderRadius.circular(15.0),
+        ),
+        color: dontknowbool ? DHCGreen : DHCGray,
+        onPressed: () async => setState(() => dontknowbool = !dontknowbool),
+      ),
+    );
+
+    final buttons = Padding(
+      padding: EdgeInsets.only(top: 10.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          weakAnalgesics,
+          SizedBox(height: 20),
+          triptanes,
+          SizedBox(height: 20),
+          combination,
+          SizedBox(height: 20),
+          stronganalgesics,
+          SizedBox(height: 20),
+          oxygen,
+          SizedBox(height: 20),
+          dontknow
+        ],
+      ),
+    );
     final nextButton = Material(
       elevation: 5.0,
       borderRadius: BorderRadius.circular(25.0),
@@ -92,7 +200,7 @@ class _TypeAnalgesics extends State<TypeAnalgesics> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 fields,
-                Smileys(),
+                buttons,
                 nextButton,
                 Padding(
                   padding: EdgeInsets.only(bottom: 150),
@@ -101,196 +209,6 @@ class _TypeAnalgesics extends State<TypeAnalgesics> {
             ),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class Smileys extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-      TapboxA(),
-    ]);
-  }
-}
-
-class TapboxA extends StatefulWidget {
-  TapboxA({Key key}) : super(key: key);
-
-  @override
-  _TapboxAState createState() => _TapboxAState();
-}
-
-class _TapboxAState extends State<TapboxA> {
-  List<bool> _isSelected = [false, false, false, false, false];
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: ToggleButtons(
-        children: <Widget>[
-          Container(
-            width: 30.0,
-            height: 30.0,
-            color: _isSelected[0] ? DHCGray : DHCGreen,
-          ),
-          Container(
-            width: 30.0,
-            height: 30.0,
-            decoration: BoxDecoration(
-                image: _isSelected[1]
-                    ? DecorationImage(
-                        image: AssetImage("asset/Buttons/2_selected.png"),
-                      )
-                    : DecorationImage(
-                        image: AssetImage('asset/Buttons/2_unselected.png'),
-                      )),
-          ),
-          Container(
-            width: 30.0,
-            height: 30.0,
-            decoration: BoxDecoration(
-                image: _isSelected[2]
-                    ? DecorationImage(
-                        image: AssetImage("asset/Buttons/3_selected.png"),
-                      )
-                    : DecorationImage(
-                        image: AssetImage('asset/Buttons/3_unselected.png'),
-                      )),
-          ),
-          Container(
-            width: 30.0,
-            height: 30.0,
-            decoration: BoxDecoration(
-                image: _isSelected[3]
-                    ? DecorationImage(
-                        image: AssetImage("asset/Buttons/4_selected.png"),
-                      )
-                    : DecorationImage(
-                        image: AssetImage('asset/Buttons/4_unselected.png'),
-                      )),
-          ),
-          Container(
-            width: 30.0,
-            height: 30.0,
-            decoration: BoxDecoration(
-                image: _isSelected[4]
-                    ? DecorationImage(
-                        image: AssetImage("asset/Buttons/5_selected.png"),
-                      )
-                    : DecorationImage(
-                        image: AssetImage('asset/Buttons/5_unselected.png'),
-                      )),
-          ),
-        ],
-        isSelected: _isSelected,
-
-        onPressed: (int index) async {
-          final prefs = await SharedPreferences.getInstance();
-
-          setState(() {
-            if (_isSelected[0] == false &&
-                _isSelected[1] == false &&
-                _isSelected[2] == false &&
-                _isSelected[3] == false &&
-                _isSelected[4] == false) {
-              _isSelected[index] = !_isSelected[index];
-            } else if (_isSelected[0] == false) {
-              if (_isSelected[1] == true) {
-                _isSelected[1] = !_isSelected[1];
-              }
-              if (_isSelected[2] == true) {
-                _isSelected[2] = !_isSelected[2];
-              }
-              if (_isSelected[3] == true) {
-                _isSelected[3] = !_isSelected[3];
-              }
-              if (_isSelected[4] == true) {
-                _isSelected[4] = !_isSelected[4];
-              }
-              _isSelected[index] = !_isSelected[index];
-            } else if (_isSelected[1] == false) {
-              if (_isSelected[0] == true) {
-                _isSelected[0] = !_isSelected[0];
-              }
-              if (_isSelected[2] == true) {
-                _isSelected[2] = !_isSelected[2];
-              }
-              if (_isSelected[3] == true) {
-                _isSelected[3] = !_isSelected[3];
-              }
-              if (_isSelected[4] == true) {
-                _isSelected[4] = !_isSelected[4];
-              }
-              _isSelected[index] = !_isSelected[index];
-            } else if (_isSelected[2] == false) {
-              if (_isSelected[0] == true) {
-                _isSelected[0] = !_isSelected[0];
-              }
-              if (_isSelected[1] == true) {
-                _isSelected[1] = !_isSelected[1];
-              }
-              if (_isSelected[3] == true) {
-                _isSelected[3] = !_isSelected[3];
-              }
-              if (_isSelected[4] == true) {
-                _isSelected[4] = !_isSelected[4];
-                _isSelected[index] = !_isSelected[index];
-              }
-            } else if (_isSelected[3] == false) {
-              if (_isSelected[0] == true) {
-                _isSelected[0] = !_isSelected[0];
-              }
-              if (_isSelected[1] == true) {
-                _isSelected[1] = !_isSelected[1];
-              }
-              if (_isSelected[2] == true) {
-                _isSelected[2] = !_isSelected[2];
-              }
-              if (_isSelected[4] == true) {
-                _isSelected[4] = !_isSelected[4];
-              }
-              _isSelected[index] = !_isSelected[index];
-            } else if (_isSelected[4] == false) {
-              if (_isSelected[0] == true) {
-                _isSelected[0] = !_isSelected[0];
-              }
-              if (_isSelected[1] == true) {
-                _isSelected[1] = !_isSelected[1];
-              }
-              if (_isSelected[2] == true) {
-                _isSelected[2] = !_isSelected[2];
-              }
-              if (_isSelected[3] == true) {
-                _isSelected[3] = !_isSelected[3];
-              }
-              _isSelected[index] = !_isSelected[index];
-            }
-            if (_isSelected[0] == true) {
-              prefs.setString('Mevalutionday', "1");
-            } else if (_isSelected[1] == true) {
-              prefs.setString('Mevalutionday', "2");
-            } else if (_isSelected[2] == true) {
-              prefs.setString('Mevalutionday', "3");
-            } else if (_isSelected[3] == true) {
-              prefs.setString('Mevalutionday', "4");
-            } else if (_isSelected[4] == true) {
-              prefs.setString('Mevalutionday', "5");
-            } else {
-              prefs.setString('Mevalutionday', "0");
-            }
-          });
-        },
-        // region example 1
-        // endregion
-        // region example 2
-        // endregion
-        fillColor: Colors.transparent,
-        // endregion
-        // region example 2
-        borderColor: Colors.transparent,
-        selectedBorderColor: Colors.transparent,
-        borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
     );
   }
