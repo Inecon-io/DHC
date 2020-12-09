@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'package:DHC/globalVariables.dart';
 
 class DaysClusterTable extends StatefulWidget {
@@ -12,8 +12,12 @@ class _DaysClusterTable extends State<DaysClusterTable> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Table Example'),
+        iconTheme: IconThemeData(
+          color: Colors.white, //change your color here
+        ),
+        backgroundColor: DHCGray,
       ),
+      backgroundColor: backgroundColorDHC,
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Table(

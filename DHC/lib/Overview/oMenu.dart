@@ -165,7 +165,17 @@ class _OMenu extends State<OMenu> {
                 builder: (context) => DaysHeadacheTable(),
               ),
             );
-          } else {}
+          } else {
+            showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    content: Container(
+                      child: Text("Vælge enten graf eller tabel i toppen"),
+                    ),
+                  );
+                });
+          }
         },
       ),
     );
@@ -201,7 +211,17 @@ class _OMenu extends State<OMenu> {
                 builder: (context) => DaysClusterTable(),
               ),
             );
-          } else {}
+          } else {
+            showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    content: Container(
+                      child: Text("Vælge enten graf eller tabel i toppen"),
+                    ),
+                  );
+                });
+          }
         },
       ),
     );
@@ -237,7 +257,17 @@ class _OMenu extends State<OMenu> {
                 builder: (context) => DaysAnalgesicsTable(),
               ),
             );
-          } else {}
+          } else {
+            showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    content: Container(
+                      child: Text("Vælge enten graf eller tabel i toppen"),
+                    ),
+                  );
+                });
+          }
         },
       ),
     );
@@ -273,7 +303,17 @@ class _OMenu extends State<OMenu> {
                 builder: (context) => IntensityTable(),
               ),
             );
-          } else {}
+          } else {
+            showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    content: Container(
+                      child: Text("Vælge enten graf eller tabel i toppen"),
+                    ),
+                  );
+                });
+          }
         },
       ),
     );
@@ -309,7 +349,17 @@ class _OMenu extends State<OMenu> {
                 builder: (context) => PrepMedicineTable(),
               ),
             );
-          } else {}
+          } else {
+            showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    content: Container(
+                      child: Text("Vælge enten graf eller tabel i toppen"),
+                    ),
+                  );
+                });
+          }
         },
       ),
     );

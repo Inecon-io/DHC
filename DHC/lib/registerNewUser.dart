@@ -18,7 +18,6 @@ class _UserRegister extends State<UserRegister> {
   bool _showPassword = false;
   final _formKey = GlobalKey<FormState>();
   TextEditingController _emailController = TextEditingController();
-  TextEditingController _telephoneController = TextEditingController();
   TextEditingController _nameController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _passwordController1 = TextEditingController();
@@ -157,33 +156,6 @@ class _UserRegister extends State<UserRegister> {
       ),
     );
 
-    final telephonefield = TextFormField(
-      controller: _telephoneController,
-      keyboardType: TextInputType.number,
-      style: TextStyle(
-        color: Colors.black,
-      ),
-      cursorColor: Colors.black,
-      decoration: InputDecoration(
-        suffixIcon: Icon(
-          Icons.local_phone_rounded,
-          color: Colors.grey,
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(30.0)),
-          borderSide: BorderSide(color: Color(0xfffb8900), width: 2.0),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(30.0)),
-          borderSide: BorderSide(color: Colors.black, width: 1.0),
-        ),
-        labelText: 'Telefonnummer',
-        labelStyle: TextStyle(fontFamily: "NunitoSans", color: Colors.grey),
-        hintText: 'telefon',
-        hintStyle: TextStyle(fontFamily: "NunitoSans", color: Colors.black),
-      ),
-    );
-
     final novotiCode = TextFormField(
       controller: _novotiPassword,
       keyboardType: TextInputType.number,
@@ -219,8 +191,6 @@ class _UserRegister extends State<UserRegister> {
           emailField,
           SizedBox(height: 20),
           nameField,
-          SizedBox(height: 20),
-          telephonefield,
           SizedBox(height: 20),
           passwordField,
           SizedBox(height: 20),
@@ -258,16 +228,6 @@ class _UserRegister extends State<UserRegister> {
                     ),
                   );
                 });
-          } else if (_novotiPassword.text != "240784") {
-            showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return AlertDialog(
-                    content: Container(
-                      child: Text("Novotikoden er ikke accepteret"),
-                    ),
-                  );
-                });
           } else {
             try {
               // ignore: deprecated_member_use
@@ -284,7 +244,6 @@ class _UserRegister extends State<UserRegister> {
                 users
                     .add({
                       "Navn": _nameController.text,
-                      "Telefonnummer": _telephoneController.text,
                       "email": _emailController.text,
                     })
                     .then((value) => print("User Added"))

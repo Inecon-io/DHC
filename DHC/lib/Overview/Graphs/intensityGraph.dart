@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:DHC/globalVariables.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:DHC/Overview/population_data.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -8,65 +9,41 @@ class IntensityGraph extends StatelessWidget {
   // Defining the data
   final List<PopulationData> data = [
     PopulationData(
-        year: 1880,
-        population: 50189209,
-        barColor: charts.ColorUtil.fromDartColor(Colors.lightBlue)),
+        year: 21112020,
+        population: 2,
+        barColor: charts.ColorUtil.fromDartColor(DHCGreen)),
     PopulationData(
-        year: 1890,
-        population: 62979766,
-        barColor: charts.ColorUtil.fromDartColor(Colors.lightBlue)),
+        year: 22112020,
+        population: 5,
+        barColor: charts.ColorUtil.fromDartColor(DHCGreen)),
     PopulationData(
-        year: 1900,
-        population: 76212168,
-        barColor: charts.ColorUtil.fromDartColor(Colors.lightBlue)),
+        year: 23112020,
+        population: 1,
+        barColor: charts.ColorUtil.fromDartColor(DHCGreen)),
     PopulationData(
-        year: 1910,
-        population: 92228496,
-        barColor: charts.ColorUtil.fromDartColor(Colors.lightBlue)),
+        year: 24112020,
+        population: 7,
+        barColor: charts.ColorUtil.fromDartColor(DHCGreen)),
     PopulationData(
-        year: 1920,
-        population: 106021537,
-        barColor: charts.ColorUtil.fromDartColor(Colors.blue)),
+        year: 25112020,
+        population: 9,
+        barColor: charts.ColorUtil.fromDartColor(DHCGreen)),
     PopulationData(
-        year: 1930,
-        population: 123202624,
-        barColor: charts.ColorUtil.fromDartColor(Colors.blue)),
+        year: 26112020,
+        population: 3,
+        barColor: charts.ColorUtil.fromDartColor(DHCGreen)),
     PopulationData(
-        year: 1940,
-        population: 132164569,
-        barColor: charts.ColorUtil.fromDartColor(Colors.blue)),
+        year: 27112020,
+        population: 5,
+        barColor: charts.ColorUtil.fromDartColor(DHCGreen)),
     PopulationData(
-        year: 1950,
-        population: 151325798,
-        barColor: charts.ColorUtil.fromDartColor(Colors.blue)),
+        year: 28112020,
+        population: 7,
+        barColor: charts.ColorUtil.fromDartColor(DHCGreen)),
     PopulationData(
-        year: 1960,
-        population: 179323175,
-        barColor: charts.ColorUtil.fromDartColor(Colors.blue)),
-    PopulationData(
-        year: 1970,
-        population: 203302031,
-        barColor: charts.ColorUtil.fromDartColor(Colors.purple)),
-    PopulationData(
-        year: 1980,
-        population: 226542199,
-        barColor: charts.ColorUtil.fromDartColor(Colors.purple)),
-    PopulationData(
-        year: 1990,
-        population: 248709873,
-        barColor: charts.ColorUtil.fromDartColor(Colors.purple)),
-    PopulationData(
-        year: 2000,
-        population: 281421906,
-        barColor: charts.ColorUtil.fromDartColor(Colors.purple)),
-    PopulationData(
-        year: 2010,
-        population: 307745538,
-        barColor: charts.ColorUtil.fromDartColor(Colors.black)),
-    PopulationData(
-        year: 2017,
-        population: 323148586,
-        barColor: charts.ColorUtil.fromDartColor(Colors.black)),
+        year: 29112020,
+        population: 8,
+        barColor: charts.ColorUtil.fromDartColor(DHCGreen)),
   ];
 
   _getSeriesData() {
@@ -85,8 +62,14 @@ class IntensityGraph extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text(
+          'Intensitet',
+          style: GoogleFonts.montserrat(fontSize: 25, color: Colors.white),
+        ),
         iconTheme: IconThemeData(
-          color: Colors.white, //change your color here
+          color: Colors.white,
+
+          //change your color here
         ),
         backgroundColor: DHCGray,
       ),
@@ -102,7 +85,7 @@ class IntensityGraph extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   Text(
-                    "Population of U.S. over the years",
+                    "Intensitet",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   SizedBox(

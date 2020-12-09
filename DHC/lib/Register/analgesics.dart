@@ -58,12 +58,26 @@ class _Analgesics extends State<Analgesics> {
           ),
         ),
         onPressed: () async {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => TypeAnalgesics(),
-            ),
-          );
+          final prefs = await SharedPreferences.getInstance();
+          String answer = prefs.get("AnalgesicYN" ?? "0");
+          if (answer == "0") {
+            showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    content: Container(
+                      child: Text("Du skal svare Ja eller Nej"),
+                    ),
+                  );
+                });
+          } else {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => TypeAnalgesics(),
+              ),
+            );
+          }
         },
       ),
     );

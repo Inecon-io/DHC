@@ -18,14 +18,25 @@ class _Confirm extends State<Confirm> {
     //future:
     //Firebase.initializeApp();
     void showAlertDialog(BuildContext context) {}
-
+    final question = Text(
+      'Registreret.',
+      textAlign: TextAlign.center,
+      style: GoogleFonts.montserrat(fontSize: 35, color: Colors.white),
+    );
+    final describe = Text(
+      'Du kan nu se dine svar i din oversigt',
+      textAlign: TextAlign.center,
+      style: GoogleFonts.montserrat(fontSize: 25, color: Colors.white),
+    );
     final fields = Padding(
       padding: EdgeInsets.only(top: 10.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           SizedBox(height: 50),
+          question,
           SizedBox(height: 20),
+          describe
         ],
       ),
     );
@@ -38,7 +49,7 @@ class _Confirm extends State<Confirm> {
         minWidth: mq.size.width / 1.2,
         padding: EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 15.0),
         child: Text(
-          "Næste",
+          "OK",
           textAlign: TextAlign.center,
           style: GoogleFonts.montserrat(
             fontSize: 20.0,

@@ -8,7 +8,7 @@ class HoursHeadacheGraph extends StatelessWidget {
   // Defining the data
   final List<PopulationData> data = [
     PopulationData(
-        year: 1880,
+        year: 1,
         population: 50189209,
         barColor: charts.ColorUtil.fromDartColor(Colors.lightBlue)),
     PopulationData(

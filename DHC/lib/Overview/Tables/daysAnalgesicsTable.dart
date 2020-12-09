@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:DHC/globalVariables.dart';
 
@@ -12,70 +13,115 @@ class _DaysAnalgesicsTable extends State<DaysAnalgesicsTable> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Table Example'),
+        iconTheme: IconThemeData(
+          color: Colors.white, //change your color here
+        ),
+        title: Text(
+          'Smertestillende',
+          style: GoogleFonts.montserrat(fontSize: 25, color: Colors.white),
+        ),
+        backgroundColor: DHCGray,
       ),
+      backgroundColor: backgroundColorDHC,
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(15.0),
         child: Table(
 //          defaultColumnWidth:
 //              FixedColumnWidth(MediaQuery.of(context).size.width / 3),
           border: TableBorder.all(
-              color: Colors.black26, width: 1, style: BorderStyle.none),
+              color: Colors.white, width: 1, style: BorderStyle.none),
           children: [
             TableRow(children: [
-              TableCell(child: Center(child: Text('Title'))),
               TableCell(
-                child: Center(child: Text('Title')),
+                  child: Center(
+                      child: Text(
+                'Dato',
+                style:
+                    GoogleFonts.montserrat(fontSize: 15, color: Colors.white),
+              ))),
+              TableCell(
+                child: Center(
+                    child: Text(
+                  'Smertestillende',
+                  style:
+                      GoogleFonts.montserrat(fontSize: 15, color: Colors.white),
+                )),
               ),
-              TableCell(child: Center(child: Text('Title'))),
-              TableCell(child: Center(child: Text('Title'))),
             ]),
             TableRow(children: [
               TableCell(
-                child: Center(child: Text('Value')),
+                child: Center(
+                    child: Text(
+                  '22-11-2020',
+                  style:
+                      GoogleFonts.montserrat(fontSize: 15, color: Colors.white),
+                )),
                 verticalAlignment: TableCellVerticalAlignment.bottom,
               ),
               TableCell(
                 verticalAlignment: TableCellVerticalAlignment.middle,
-                child: Center(child: Text('Value')),
+                child: Center(
+                    child: Text(
+                  'Ja',
+                  style:
+                      GoogleFonts.montserrat(fontSize: 15, color: Colors.white),
+                )),
               ),
+            ]),
+            TableRow(children: [
               TableCell(
                   child: Center(
-                      child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.red,
-                    border: Border.all(color: Colors.black26),
-                    borderRadius: BorderRadius.all(Radius.circular(16))),
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'ValueaaValueaaValueaaValueaaValueaaValueaaValueaa',
-                  style: TextStyle(color: Colors.yellow),
-                ),
+                      child: Text(
+                '23-11-2020',
+                style:
+                    GoogleFonts.montserrat(fontSize: 15, color: Colors.white),
               ))),
               TableCell(
-                child: Center(child: Text('Value')),
-                verticalAlignment: TableCellVerticalAlignment.top,
+                child: Center(
+                    child: Text(
+                  'Ja',
+                  style:
+                      GoogleFonts.montserrat(fontSize: 15, color: Colors.white),
+                )),
               ),
             ]),
             TableRow(children: [
-              TableCell(child: Center(child: Text('Value'))),
               TableCell(
-                child: Center(child: Text('Value')),
-              ),
-              TableCell(child: Center(child: Text('Value'))),
-              TableCell(child: Center(child: Text('Value'))),
-            ]),
-            TableRow(children: [
-              TableCell(child: Center(child: Text('Value'))),
+                  child: Center(
+                      child: Text(
+                '25-11-2020',
+                style:
+                    GoogleFonts.montserrat(fontSize: 15, color: Colors.white),
+              ))),
               TableCell(
-                child: Center(child: Text('Value')),
+                child: Center(
+                    child: Text(
+                  'Nej',
+                  style:
+                      GoogleFonts.montserrat(fontSize: 15, color: Colors.white),
+                )),
               ),
-              TableCell(child: Center(child: Text('Value'))),
-              TableCell(child: Center(child: Text('Value'))),
             ])
           ],
         ),
       ),
+    );
+  }
+}
+
+class UnderText extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(width: 20),
+        Text(
+          'Smertestillende',
+          style: GoogleFonts.montserrat(fontSize: 35, color: Colors.white),
+          textAlign: TextAlign.center,
+        ),
+      ],
     );
   }
 }

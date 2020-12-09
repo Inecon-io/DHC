@@ -59,6 +59,7 @@ class _Attacks extends State<Attacks> {
           ),
         ),
         onPressed: () async {
+          final prefs = await SharedPreferences.getInstance();
           Navigator.push(
             context,
             MaterialPageRoute(
