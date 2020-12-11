@@ -7,53 +7,53 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class IntensityGraph extends StatelessWidget {
   // Defining the data
-  final List<PopulationData> data = [
-    PopulationData(
+  final List<HeadacheData> data = [
+    HeadacheData(
         year: 21112020,
         population: 2,
         barColor: charts.ColorUtil.fromDartColor(DHCGreen)),
-    PopulationData(
+    HeadacheData(
         year: 22112020,
         population: 5,
         barColor: charts.ColorUtil.fromDartColor(DHCGreen)),
-    PopulationData(
+    HeadacheData(
         year: 23112020,
         population: 1,
         barColor: charts.ColorUtil.fromDartColor(DHCGreen)),
-    PopulationData(
+    HeadacheData(
         year: 24112020,
         population: 7,
         barColor: charts.ColorUtil.fromDartColor(DHCGreen)),
-    PopulationData(
+    HeadacheData(
         year: 25112020,
         population: 9,
         barColor: charts.ColorUtil.fromDartColor(DHCGreen)),
-    PopulationData(
+    HeadacheData(
         year: 26112020,
         population: 3,
         barColor: charts.ColorUtil.fromDartColor(DHCGreen)),
-    PopulationData(
+    HeadacheData(
         year: 27112020,
         population: 5,
         barColor: charts.ColorUtil.fromDartColor(DHCGreen)),
-    PopulationData(
+    HeadacheData(
         year: 28112020,
         population: 7,
         barColor: charts.ColorUtil.fromDartColor(DHCGreen)),
-    PopulationData(
+    HeadacheData(
         year: 29112020,
         population: 8,
         barColor: charts.ColorUtil.fromDartColor(DHCGreen)),
   ];
 
   _getSeriesData() {
-    List<charts.Series<PopulationData, String>> series = [
+    List<charts.Series<HeadacheData, String>> series = [
       charts.Series(
           id: "Population",
           data: data,
-          domainFn: (PopulationData series, _) => series.year.toString(),
-          measureFn: (PopulationData series, _) => series.population,
-          colorFn: (PopulationData series, _) => series.barColor)
+          domainFn: (HeadacheData series, _) => series.year.toString(),
+          measureFn: (HeadacheData series, _) => series.population,
+          colorFn: (HeadacheData series, _) => series.barColor)
     ];
     return series;
   }

@@ -201,7 +201,7 @@ class _OMenu extends State<OMenu> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => DaysClusterGraph(),
+                builder: (context) => DaysClusterHeadacheGraph(),
               ),
             );
           } else if (prefs.getString("Graph") == "0") {

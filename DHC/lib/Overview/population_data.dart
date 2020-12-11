@@ -1,11 +1,11 @@
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
-class PopulationData {
+class HeadacheData {
   int year;
   int population;
   charts.Color barColor;
-  PopulationData(
+  HeadacheData(
       {@required this.year,
       @required this.population,
       @required this.barColor});
